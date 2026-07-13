@@ -2,3 +2,6 @@ _dl/
 *.pyc
 __pycache__/
 _batch.log
+# pixi environments
+.pixi/*
+!.pixi/config.toml
