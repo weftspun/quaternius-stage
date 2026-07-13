@@ -107,6 +107,7 @@ def Xform "root" (
             def Shader "Image_Texture"
             {
                 uniform token info:id = "UsdUVTexture"
+                asset inputs:file = @./textures/T_ConcreteAsphalt_D.png@
                 token inputs:sourceColorSpace = "sRGB"
                 float2 inputs:st.connect = </root/_materials/MI_Asphalt/uvmap.outputs:result>
                 token inputs:wrapS = "repeat"
@@ -125,6 +126,7 @@ def Xform "root" (
             {
                 uniform token info:id = "UsdUVTexture"
                 float4 inputs:bias = (-1, -1, -1, -1)
+                asset inputs:file = @./textures/T_Concrete_N.png@
                 float4 inputs:scale = (2, 2, 2, 2)
                 token inputs:sourceColorSpace = "raw"
                 float2 inputs:st.connect = </root/_materials/MI_Asphalt/uvmap.outputs:result>
@@ -157,6 +159,7 @@ def Xform "root" (
             def Shader "Image_Texture"
             {
                 uniform token info:id = "UsdUVTexture"
+                asset inputs:file = @./textures/T_StreetDecals_D.png@
                 token inputs:sourceColorSpace = "raw"
                 float2 inputs:st.connect = </root/_materials/MI_StreetDecals/uvmap.outputs:result>
                 token inputs:wrapS = "repeat"
@@ -174,6 +177,7 @@ def Xform "root" (
             def Shader "Image_Texture_001"
             {
                 uniform token info:id = "UsdUVTexture"
+                asset inputs:file = @./textures/T_StreetDecals_D.png@
                 token inputs:sourceColorSpace = "raw"
                 float2 inputs:st.connect = </root/_materials/MI_StreetDecals/uvmap.outputs:result>
                 token inputs:wrapS = "repeat"
@@ -205,6 +209,7 @@ def Xform "root" (
             def Shader "Image_Texture"
             {
                 uniform token info:id = "UsdUVTexture"
+                asset inputs:file = @./textures/T_MetalConcrete_D.png@
                 token inputs:sourceColorSpace = "sRGB"
                 float2 inputs:st.connect = </root/_materials/MI_Trim_MetalConcrete/uvmap.outputs:result>
                 token inputs:wrapS = "repeat"
@@ -223,6 +228,7 @@ def Xform "root" (
             {
                 uniform token info:id = "UsdUVTexture"
                 float4 inputs:bias = (-1, -1, -1, -1)
+                asset inputs:file = @./textures/T_MetalConcrete_N.png@
                 float4 inputs:scale = (2, 2, 2, 2)
                 token inputs:sourceColorSpace = "raw"
                 float2 inputs:st.connect = </root/_materials/MI_Trim_MetalConcrete/uvmap.outputs:result>

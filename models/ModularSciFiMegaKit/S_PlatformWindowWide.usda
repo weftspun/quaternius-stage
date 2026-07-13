@@ -129,6 +129,7 @@ def Xform "root" (
             def Shader "Image_Texture"
             {
                 uniform token info:id = "UsdUVTexture"
+                asset inputs:file = @./textures/T_Trim03_D.png@
                 token inputs:sourceColorSpace = "sRGB"
                 float2 inputs:st.connect = </root/_materials/MI_Trim_03/uvmap.outputs:result>
                 token inputs:wrapS = "repeat"
@@ -166,6 +167,7 @@ def Xform "root" (
             def Shader "Image_Texture"
             {
                 uniform token info:id = "UsdUVTexture"
+                asset inputs:file = @./textures/T_Trim02Red_D.png@
                 token inputs:sourceColorSpace = "sRGB"
                 float2 inputs:st.connect = </root/_materials/MI_Trim_02/uvmap.outputs:result>
                 token inputs:wrapS = "repeat"
@@ -203,6 +205,7 @@ def Xform "root" (
             def Shader "Image_Texture"
             {
                 uniform token info:id = "UsdUVTexture"
+                asset inputs:file = @./textures/T_Trim03Cables_D.png@
                 token inputs:sourceColorSpace = "sRGB"
                 float2 inputs:st.connect = </root/_materials/MI_Trim_03_Cables/uvmap.outputs:result>
                 token inputs:wrapS = "repeat"

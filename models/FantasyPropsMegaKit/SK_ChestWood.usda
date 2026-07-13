@@ -179,7 +179,7 @@ def Xform "root" (
             def Shader "Image_Texture"
             {
                 uniform token info:id = "UsdUVTexture"
-                asset inputs:file = @./textures/T_TTrimFurnitureBaseColor_D.png@
+                asset inputs:file = @./textures/T_TrimFurniture_D.png@
                 token inputs:sourceColorSpace = "sRGB"
                 float2 inputs:st.connect = </root/_materials/MI_Trim_Furniture/uvmap.outputs:result>
                 token inputs:wrapS = "repeat"
@@ -198,7 +198,7 @@ def Xform "root" (
             {
                 uniform token info:id = "UsdUVTexture"
                 float4 inputs:bias = (-1, -1, -1, -1)
-                asset inputs:file = @./textures/T_TTrimFurnitureNormal_N.png@
+                asset inputs:file = @./textures/T_TrimFurniture_N.png@
                 float4 inputs:scale = (2, 2, 2, 2)
                 token inputs:sourceColorSpace = "raw"
                 float2 inputs:st.connect = </root/_materials/MI_Trim_Furniture/uvmap.outputs:result>
@@ -231,7 +231,7 @@ def Xform "root" (
             def Shader "Image_Texture"
             {
                 uniform token info:id = "UsdUVTexture"
-                asset inputs:file = @./textures/T_TTrimMetalBaseColor_M.png@
+                asset inputs:file = @./textures/T_TrimMetal_D.png@
                 token inputs:sourceColorSpace = "sRGB"
                 float2 inputs:st.connect = </root/_materials/MI_Trim_Metal/uvmap.outputs:result>
                 token inputs:wrapS = "repeat"
@@ -250,7 +250,7 @@ def Xform "root" (
             {
                 uniform token info:id = "UsdUVTexture"
                 float4 inputs:bias = (-1, -1, -1, -1)
-                asset inputs:file = @./textures/T_TTrimMetalNormal_N.png@
+                asset inputs:file = @./textures/T_TrimMetal_N.png@
                 float4 inputs:scale = (2, 2, 2, 2)
                 token inputs:sourceColorSpace = "raw"
                 float2 inputs:st.connect = </root/_materials/MI_Trim_Metal/uvmap.outputs:result>

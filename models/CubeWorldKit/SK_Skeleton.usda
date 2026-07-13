@@ -103,6 +103,7 @@ def Xform "root" (
             def Shader "Image_Texture"
             {
                 uniform token info:id = "UsdUVTexture"
+                asset inputs:file = @./textures/T_Atlas_D.png@
                 token inputs:sourceColorSpace = "sRGB"
                 float2 inputs:st.connect = </root/_materials/Atlas/uvmap.outputs:result>
                 token inputs:wrapS = "repeat"

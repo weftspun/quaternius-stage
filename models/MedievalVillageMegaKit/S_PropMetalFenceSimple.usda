@@ -68,6 +68,7 @@ def Xform "root" (
             def Shader "Image_Texture"
             {
                 uniform token info:id = "UsdUVTexture"
+                asset inputs:file = @./textures/T_MetalOrnaments_D.png@
                 token inputs:sourceColorSpace = "sRGB"
                 float2 inputs:st.connect = </root/_materials/MI_MetalOrnaments/uvmap.outputs:result>
                 token inputs:wrapS = "repeat"
@@ -85,6 +86,7 @@ def Xform "root" (
             def Shader "Image_Texture_001"
             {
                 uniform token info:id = "UsdUVTexture"
+                asset inputs:file = @./textures/T_MetalOrnaments_R.png@
                 token inputs:sourceColorSpace = "raw"
                 float2 inputs:st.connect = </root/_materials/MI_MetalOrnaments/uvmap.outputs:result>
                 token inputs:wrapS = "repeat"

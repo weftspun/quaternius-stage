@@ -168,6 +168,7 @@ def Xform "root" (
             def Shader "Image_Texture"
             {
                 uniform token info:id = "UsdUVTexture"
+                asset inputs:file = @./textures/T_Ranger_D.png@
                 token inputs:sourceColorSpace = "sRGB"
                 float2 inputs:st.connect = </root/_materials/MI_Ranger/uvmap.outputs:result>
                 token inputs:wrapS = "repeat"
@@ -186,6 +187,7 @@ def Xform "root" (
             {
                 uniform token info:id = "UsdUVTexture"
                 float4 inputs:bias = (-1, -1, -1, -1)
+                asset inputs:file = @./textures/T_Ranger_N.png@
                 float4 inputs:scale = (2, 2, 2, 2)
                 token inputs:sourceColorSpace = "raw"
                 float2 inputs:st.connect = </root/_materials/MI_Ranger/uvmap.outputs:result>
@@ -218,6 +220,7 @@ def Xform "root" (
             def Shader "Image_Texture"
             {
                 uniform token info:id = "UsdUVTexture"
+                asset inputs:file = @./textures/T_RegularMaleDark_D.png@
                 token inputs:sourceColorSpace = "sRGB"
                 float2 inputs:st.connect = </root/_materials/MI_Regular_Male/uvmap.outputs:result>
                 token inputs:wrapS = "repeat"
@@ -235,6 +238,7 @@ def Xform "root" (
             def Shader "Image_Texture_001"
             {
                 uniform token info:id = "UsdUVTexture"
+                asset inputs:file = @./textures/T_RegularMale_R.png@
                 token inputs:sourceColorSpace = "raw"
                 float2 inputs:st.connect = </root/_materials/MI_Regular_Male/uvmap.outputs:result>
                 token inputs:wrapS = "repeat"
@@ -246,6 +250,7 @@ def Xform "root" (
             {
                 uniform token info:id = "UsdUVTexture"
                 float4 inputs:bias = (-1, -1, -1, -1)
+                asset inputs:file = @./textures/T_RegularMale_N.png@
                 float4 inputs:scale = (2, 2, 2, 2)
                 token inputs:sourceColorSpace = "raw"
                 float2 inputs:st.connect = </root/_materials/MI_Regular_Male/uvmap.outputs:result>

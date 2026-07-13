@@ -207,6 +207,7 @@ def Xform "root" (
             def Shader "Image_Texture"
             {
                 uniform token info:id = "UsdUVTexture"
+                asset inputs:file = @./textures/T_RedBrick_D.png@
                 token inputs:sourceColorSpace = "sRGB"
                 float2 inputs:st.connect = </root/_materials/MI_RedBrick_Pale/uvmap.outputs:result>
                 token inputs:wrapS = "repeat"
@@ -225,6 +226,7 @@ def Xform "root" (
             {
                 uniform token info:id = "UsdUVTexture"
                 float4 inputs:bias = (-1, -1, -1, -1)
+                asset inputs:file = @./textures/T_RedBrick_N.png@
                 float4 inputs:scale = (2, 2, 2, 2)
                 token inputs:sourceColorSpace = "raw"
                 float2 inputs:st.connect = </root/_materials/MI_RedBrick_Pale/uvmap.outputs:result>
@@ -257,6 +259,7 @@ def Xform "root" (
             def Shader "Image_Texture"
             {
                 uniform token info:id = "UsdUVTexture"
+                asset inputs:file = @./textures/T_Trim_D.png@
                 token inputs:sourceColorSpace = "sRGB"
                 float2 inputs:st.connect = </root/_materials/MI_Trim/uvmap.outputs:result>
                 token inputs:wrapS = "repeat"
@@ -275,6 +278,7 @@ def Xform "root" (
             {
                 uniform token info:id = "UsdUVTexture"
                 float4 inputs:bias = (-1, -1, -1, -1)
+                asset inputs:file = @./textures/T_Trim_N.png@
                 float4 inputs:scale = (2, 2, 2, 2)
                 token inputs:sourceColorSpace = "raw"
                 float2 inputs:st.connect = </root/_materials/MI_Trim/uvmap.outputs:result>
@@ -307,6 +311,7 @@ def Xform "root" (
             def Shader "Image_Texture"
             {
                 uniform token info:id = "UsdUVTexture"
+                asset inputs:file = @./textures/T_RedBrick_D.png@
                 token inputs:sourceColorSpace = "sRGB"
                 float2 inputs:st.connect = </root/_materials/MI_InteriorWall/uvmap.outputs:result>
                 token inputs:wrapS = "repeat"
@@ -325,6 +330,7 @@ def Xform "root" (
             {
                 uniform token info:id = "UsdUVTexture"
                 float4 inputs:bias = (-1, -1, -1, -1)
+                asset inputs:file = @./textures/T_RedBrick_N.png@
                 float4 inputs:scale = (2, 2, 2, 2)
                 token inputs:sourceColorSpace = "raw"
                 float2 inputs:st.connect = </root/_materials/MI_InteriorWall/uvmap.outputs:result>
@@ -357,6 +363,7 @@ def Xform "root" (
             def Shader "Image_Texture"
             {
                 uniform token info:id = "UsdUVTexture"
+                asset inputs:file = @./textures/T_MetalConcrete_D.png@
                 token inputs:sourceColorSpace = "sRGB"
                 float2 inputs:st.connect = </root/_materials/MI_Trim_MetalConcrete/uvmap.outputs:result>
                 token inputs:wrapS = "repeat"
@@ -375,6 +382,7 @@ def Xform "root" (
             {
                 uniform token info:id = "UsdUVTexture"
                 float4 inputs:bias = (-1, -1, -1, -1)
+                asset inputs:file = @./textures/T_MetalConcrete_N.png@
                 float4 inputs:scale = (2, 2, 2, 2)
                 token inputs:sourceColorSpace = "raw"
                 float2 inputs:st.connect = </root/_materials/MI_Trim_MetalConcrete/uvmap.outputs:result>
@@ -426,6 +434,7 @@ def Xform "root" (
             def Shader "Image_Texture"
             {
                 uniform token info:id = "UsdUVTexture"
+                asset inputs:file = @./textures/T_LitInterior2_D.png@
                 token inputs:sourceColorSpace = "sRGB"
                 float2 inputs:st.connect = </root/_materials/MI_FakeInterior_2/uvmap.outputs:result>
                 token inputs:wrapS = "repeat"
@@ -464,6 +473,7 @@ def Xform "root" (
             def Shader "Image_Texture"
             {
                 uniform token info:id = "UsdUVTexture"
+                asset inputs:file = @./textures/T_Trim_D.png@
                 token inputs:sourceColorSpace = "sRGB"
                 float2 inputs:st.connect = </root/_materials/MI_Trim_Dark/uvmap.outputs:result>
                 token inputs:wrapS = "repeat"
@@ -482,6 +492,7 @@ def Xform "root" (
             {
                 uniform token info:id = "UsdUVTexture"
                 float4 inputs:bias = (-1, -1, -1, -1)
+                asset inputs:file = @./textures/T_Trim_N.png@
                 float4 inputs:scale = (2, 2, 2, 2)
                 token inputs:sourceColorSpace = "raw"
                 float2 inputs:st.connect = </root/_materials/MI_Trim_Dark/uvmap.outputs:result>
@@ -513,6 +524,7 @@ def Xform "root" (
             def Shader "Image_Texture"
             {
                 uniform token info:id = "UsdUVTexture"
+                asset inputs:file = @./textures/T_LitInterior1_D.png@
                 token inputs:sourceColorSpace = "sRGB"
                 float2 inputs:st.connect = </root/_materials/MI_FakeInterior_1/uvmap.outputs:result>
                 token inputs:wrapS = "repeat"
@@ -551,6 +563,7 @@ def Xform "root" (
             def Shader "Image_Texture"
             {
                 uniform token info:id = "UsdUVTexture"
+                asset inputs:file = @./textures/T_Concrete_D.png@
                 token inputs:sourceColorSpace = "sRGB"
                 float2 inputs:st.connect = </root/_materials/MI_Concrete/uvmap.outputs:result>
                 token inputs:wrapS = "repeat"
@@ -569,6 +582,7 @@ def Xform "root" (
             {
                 uniform token info:id = "UsdUVTexture"
                 float4 inputs:bias = (-1, -1, -1, -1)
+                asset inputs:file = @./textures/T_Concrete_N.png@
                 float4 inputs:scale = (2, 2, 2, 2)
                 token inputs:sourceColorSpace = "raw"
                 float2 inputs:st.connect = </root/_materials/MI_Concrete/uvmap.outputs:result>
@@ -600,6 +614,7 @@ def Xform "root" (
             def Shader "Image_Texture"
             {
                 uniform token info:id = "UsdUVTexture"
+                asset inputs:file = @./textures/T_DarkInterior_D.png@
                 token inputs:sourceColorSpace = "sRGB"
                 float2 inputs:st.connect = </root/_materials/MI_FakeInterior_4/uvmap.outputs:result>
                 token inputs:wrapS = "repeat"
@@ -637,6 +652,7 @@ def Xform "root" (
             def Shader "Image_Texture"
             {
                 uniform token info:id = "UsdUVTexture"
+                asset inputs:file = @./textures/T_LitInterior1_D.png@
                 token inputs:sourceColorSpace = "sRGB"
                 float2 inputs:st.connect = </root/_materials/MI_FakeInterior_3/uvmap.outputs:result>
                 token inputs:wrapS = "repeat"
@@ -675,6 +691,7 @@ def Xform "root" (
             def Shader "Image_Texture"
             {
                 uniform token info:id = "UsdUVTexture"
+                asset inputs:file = @./textures/T_ConcreteAsphalt_D.png@
                 token inputs:sourceColorSpace = "sRGB"
                 float2 inputs:st.connect = </root/_materials/MI_Asphalt/uvmap.outputs:result>
                 token inputs:wrapS = "repeat"
@@ -693,6 +710,7 @@ def Xform "root" (
             {
                 uniform token info:id = "UsdUVTexture"
                 float4 inputs:bias = (-1, -1, -1, -1)
+                asset inputs:file = @./textures/T_Concrete_N.png@
                 float4 inputs:scale = (2, 2, 2, 2)
                 token inputs:sourceColorSpace = "raw"
                 float2 inputs:st.connect = </root/_materials/MI_Asphalt/uvmap.outputs:result>
@@ -725,6 +743,7 @@ def Xform "root" (
             def Shader "Image_Texture"
             {
                 uniform token info:id = "UsdUVTexture"
+                asset inputs:file = @./textures/T_MarbleFloor_D.png@
                 token inputs:sourceColorSpace = "sRGB"
                 float2 inputs:st.connect = </root/_materials/MI_InteriorFloor/uvmap.outputs:result>
                 token inputs:wrapS = "repeat"
@@ -743,6 +762,7 @@ def Xform "root" (
             {
                 uniform token info:id = "UsdUVTexture"
                 float4 inputs:bias = (-1, -1, -1, -1)
+                asset inputs:file = @./textures/T_MarbleFloor_N.png@
                 float4 inputs:scale = (2, 2, 2, 2)
                 token inputs:sourceColorSpace = "raw"
                 float2 inputs:st.connect = </root/_materials/MI_InteriorFloor/uvmap.outputs:result>

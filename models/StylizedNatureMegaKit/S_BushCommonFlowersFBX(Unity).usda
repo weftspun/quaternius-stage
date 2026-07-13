@@ -93,6 +93,7 @@ def Xform "root" (
             def Shader "Image_Texture"
             {
                 uniform token info:id = "UsdUVTexture"
+                asset inputs:file = @./textures/T_LeavesTreeC_N.png@
                 token inputs:sourceColorSpace = "raw"
                 float2 inputs:st.connect = </root/_materials/Leaves_NormalTree/uvmap.outputs:result>
                 token inputs:wrapS = "repeat"
@@ -110,6 +111,7 @@ def Xform "root" (
             def Shader "Image_Texture_001"
             {
                 uniform token info:id = "UsdUVTexture"
+                asset inputs:file = @./textures/T_LeavesTreeC_N.png@
                 token inputs:sourceColorSpace = "raw"
                 float2 inputs:st.connect = </root/_materials/Leaves_NormalTree/uvmap.outputs:result>
                 token inputs:wrapS = "repeat"
@@ -141,6 +143,7 @@ def Xform "root" (
             def Shader "Image_Texture"
             {
                 uniform token info:id = "UsdUVTexture"
+                asset inputs:file = @./textures/T_Flowers_D.png@
                 token inputs:sourceColorSpace = "raw"
                 float2 inputs:st.connect = </root/_materials/Flowers/uvmap.outputs:result>
                 token inputs:wrapS = "repeat"
@@ -158,6 +161,7 @@ def Xform "root" (
             def Shader "Image_Texture_001"
             {
                 uniform token info:id = "UsdUVTexture"
+                asset inputs:file = @./textures/T_Flowers_D.png@
                 token inputs:sourceColorSpace = "raw"
                 float2 inputs:st.connect = </root/_materials/Flowers/uvmap.outputs:result>
                 token inputs:wrapS = "repeat"
