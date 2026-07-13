@@ -1,0 +1,4 @@
+_dl/
+*.pyc
+__pycache__/
+_batch.log
