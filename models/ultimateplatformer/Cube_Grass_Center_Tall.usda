@@ -1,0 +1,66 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+    doc = "Blender v5.1.2"
+    metersPerUnit = 1
+    upAxis = "Y"
+)
+
+def Xform "root" (
+    customData = {
+        dictionary Blender = {
+            bool generated = 1
+        }
+    }
+)
+{
+    float3 xformOp:rotateXYZ = (-90, -0, 0)
+    uniform token[] xformOpOrder = ["xformOp:rotateXYZ"]
+
+    def Xform "Cube_Grass_Center_Tall"
+    {
+        custom string userProperties:blender:object_name = "Cube_Grass_Center_Tall"
+
+        def Mesh "Cube_382" (
+            active = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            uniform bool doubleSided = 1
+            float3[] extent = [(-1.0000002, -1, 0.9959563), (1.0000002, 1.0000001, 0.9959563)]
+            int[] faceVertexCounts = [4]
+            int[] faceVertexIndices = [3, 2, 0, 1]
+            rel material:binding = </root/_materials/Green_Light>
+            normal3f[] normals = [(0, 0, 1), (0, 0, 1), (0, 0, 1), (0, 0, 1)] (
+                interpolation = "faceVarying"
+            )
+            point3f[] points = [(-1.0000002, -1, 0.9959563), (1.0000002, -1, 0.9959563), (-1.0000002, 1.0000001, 0.9959563), (1.0000002, 1.0000001, 0.9959563)]
+            uniform token subdivisionScheme = "none"
+            custom string userProperties:blender:data_name = "Cube.382"
+        }
+    }
+
+    def Scope "_materials"
+    {
+        def Material "Green_Light"
+        {
+            token outputs:surface.connect = </root/_materials/Green_Light/Principled_BSDF.outputs:surface>
+            custom string userProperties:blender:data_name = "Green_Light"
+
+            def Shader "Principled_BSDF"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                float inputs:clearcoat = 0
+                float inputs:clearcoatRoughness = 0.03
+                color3f inputs:diffuseColor = (0.31286794, 0.41093433, 0.02278113)
+                float inputs:ior = 1.5
+                float inputs:metallic = 0
+                float inputs:opacity = 1
+                float inputs:roughness = 0.6900348
+                float inputs:specular = 0.5
+                token outputs:surface
+            }
+        }
+    }
+}
+

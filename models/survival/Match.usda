@@ -1,0 +1,107 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+    doc = "Blender v5.1.2"
+    metersPerUnit = 1
+    upAxis = "Y"
+)
+
+def Xform "root" (
+    customData = {
+        dictionary Blender = {
+            bool generated = 1
+        }
+    }
+)
+{
+    float3 xformOp:rotateXYZ = (-90, -0, 0)
+    uniform token[] xformOpOrder = ["xformOp:rotateXYZ"]
+
+    def Xform "Match"
+    {
+        custom string userProperties:blender:object_name = "Match"
+
+        def Mesh "Cube_013" (
+            active = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            uniform bool doubleSided = 1
+            float3[] extent = [(-0.020678315, -0.018987728, -0.2998058), (0.020678312, 0.018987726, 0.29980573)]
+            int[] faceVertexCounts = [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4]
+            int[] faceVertexIndices = [1, 10, 11, 3, 2, 6, 7, 3, 6, 4, 5, 7, 4, 0, 1, 5, 2, 0, 4, 6, 7, 5, 1, 3, 9, 13, 14, 10, 2, 8, 9, 0, 3, 11, 8, 2, 0, 9, 10, 1, 13, 12, 15, 14, 10, 14, 15, 11, 8, 12, 13, 9, 11, 15, 12, 8]
+            rel material:binding = </root/_materials/Red>
+            normal3f[] normals = [(-0.00436366, 0.9662424, -0.25759766), (-0.00436366, 0.9662424, -0.25759766), (-0.00436366, 0.9662424, -0.25759766), (-0.00436366, 0.9662424, -0.25759766), (0.99993545, 3.8754536e-8, -0.011360845), (0.99993545, 3.8754536e-8, -0.011360845), (0.99993545, 3.8754536e-8, -0.011360845), (0.99993545, 3.8754536e-8, -0.011360845), (-0.016937902, -7.144674e-10, -0.99985653), (-0.016937902, -7.144674e-10, -0.99985653), (-0.016937902, -7.144674e-10, -0.99985653), (-0.016937902, -7.144674e-10, -0.99985653), (-0.99974656, 0, 0.022514047), (-0.99974656, 0, 0.022514047), (-0.99974656, 0, 0.022514047), (-0.99974656, 0, 0.022514047), (0.00009450862, -0.9999844, 0.0055766143), (0.00009450862, -0.9999844, 0.0055766143), (0.00009450862, -0.9999844, 0.0055766143), (0.00009450862, -0.9999844, 0.0055766143), (0.00009442492, 0.99998444, 0.005576604), (0.00009442492, 0.99998444, 0.005576604), (0.00009442492, 0.99998444, 0.005576604), (0.00009442492, 0.99998444, 0.005576604), (-0.9560919, -3.865687e-8, 0.29306692), (-0.9560919, -3.865687e-8, 0.29306692), (-0.9560919, -3.865687e-8, 0.29306692), (-0.9560919, -3.865687e-8, 0.29306692), (-0.0043634363, -0.9662424, -0.25759777), (-0.0043634363, -0.9662424, -0.25759777), (-0.0043634363, -0.9662424, -0.25759777), (-0.0043634363, -0.9662424, -0.25759777), (0.9617401, 0, -0.27396366), (0.9617401, 0, -0.27396366), (0.9617401, 0, -0.27396366), (0.9617401, 0, -0.27396366), (-0.97046757, 0, -0.24123189), (-0.97046757, 0, -0.24123189), (-0.97046757, 0, -0.24123189), (-0.97046757, 0, -0.24123189), (0.016936092, 1.3079097e-9, 0.9998566), (0.016936092, 1.3079097e-9, 0.9998566), (0.016936092, 1.3079097e-9, 0.9998566), (0.016936092, 1.3079097e-9, 0.9998566), (0.00468878, 0.9609187, 0.27679133), (0.00468878, 0.9609187, 0.27679133), (0.00468878, 0.9609187, 0.27679133), (0.00468878, 0.9609187, 0.27679133), (0.0046886243, -0.96091855, 0.27679157), (0.0046886243, -0.96091855, 0.27679157), (0.0046886243, -0.96091855, 0.27679157), (0.0046886243, -0.96091855, 0.27679157), (0.96546966, 0, 0.26051572), (0.96546966, 0, 0.26051572), (0.96546966, 0, 0.26051572), (0.96546966, 0, 0.26051572)] (
+                interpolation = "faceVarying"
+            )
+            point3f[] points = [(-0.008498966, -0.009597131, 0.24145111), (-0.008498966, 0.009597132, 0.24145111), (0.010692541, -0.00959713, 0.24112602), (0.010692541, 0.009597133, 0.24112602), (-0.020678315, -0.012614327, -0.29937848), (-0.020678315, 0.012614322, -0.29937848), (0.0045467014, -0.012614326, -0.2998058), (0.0045467005, 0.012614323, -0.2998058), (0.020678312, -0.018987728, 0.27618074), (-0.017291684, -0.018987728, 0.27682394), (-0.017291684, 0.018987726, 0.27682394), (0.020678312, 0.018987726, 0.27618074), (0.014416235, -0.012333471, 0.29938796), (-0.010247156, -0.012333472, 0.29980573), (-0.010247158, 0.012333477, 0.29980573), (0.014416233, 0.012333478, 0.29938796)]
+            uniform token subdivisionScheme = "none"
+            uniform token subsetFamily:materialBind:familyType = "nonOverlapping"
+            custom string userProperties:blender:data_name = "Cube.013"
+
+            def GeomSubset "Red" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                uniform token elementType = "face"
+                uniform token familyName = "materialBind"
+                int[] indices = [0, 6, 7, 8, 9, 10, 11, 12, 13]
+                rel material:binding = </root/_materials/Red>
+            }
+
+            def GeomSubset "Match" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                uniform token elementType = "face"
+                uniform token familyName = "materialBind"
+                int[] indices = [1, 2, 3, 4, 5]
+                rel material:binding = </root/_materials/Match>
+            }
+        }
+    }
+
+    def Scope "_materials"
+    {
+        def Material "Red"
+        {
+            token outputs:surface.connect = </root/_materials/Red/Principled_BSDF.outputs:surface>
+            custom string userProperties:blender:data_name = "Red"
+
+            def Shader "Principled_BSDF"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                float inputs:clearcoat = 0
+                float inputs:clearcoatRoughness = 0.03
+                color3f inputs:diffuseColor = (0.21402915, 0.03954939, 0.037384413)
+                float inputs:ior = 1.5
+                float inputs:metallic = 0
+                float inputs:opacity = 1
+                float inputs:roughness = 0.6900348
+                float inputs:specular = 0.5
+                token outputs:surface
+            }
+        }
+
+        def Material "Match"
+        {
+            token outputs:surface.connect = </root/_materials/Match/Principled_BSDF.outputs:surface>
+            custom string userProperties:blender:data_name = "Match"
+
+            def Shader "Principled_BSDF"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                float inputs:clearcoat = 0
+                float inputs:clearcoatRoughness = 0.03
+                color3f inputs:diffuseColor = (0.47698513, 0.40785757, 0.26343122)
+                float inputs:ior = 1.5
+                float inputs:metallic = 0
+                float inputs:opacity = 1
+                float inputs:roughness = 0.6900348
+                float inputs:specular = 0.5
+                token outputs:surface
+            }
+        }
+    }
+}
+

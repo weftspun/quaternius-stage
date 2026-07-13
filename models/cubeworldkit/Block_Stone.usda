@@ -1,0 +1,88 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+    doc = "Blender v5.1.2"
+    metersPerUnit = 1
+    upAxis = "Y"
+)
+
+def Xform "root" (
+    customData = {
+        dictionary Blender = {
+            bool generated = 1
+        }
+    }
+)
+{
+    float3 xformOp:rotateXYZ = (-90, -0, 0)
+    uniform token[] xformOpOrder = ["xformOp:rotateXYZ"]
+
+    def Xform "Stone"
+    {
+        custom string userProperties:blender:object_name = "Stone"
+
+        def Mesh "Cube_506" (
+            active = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            uniform bool doubleSided = 1
+            float3[] extent = [(-1.0000001, -1.0000002, -1.0000001), (1.0000001, 1.0000002, 1.0000001)]
+            int[] faceVertexCounts = [4, 4, 4, 4, 4, 4]
+            int[] faceVertexIndices = [2, 6, 4, 0, 7, 3, 1, 5, 4, 5, 1, 0, 6, 7, 5, 4, 2, 3, 7, 6, 0, 1, 3, 2]
+            rel material:binding = </root/_materials/Atlas>
+            normal3f[] normals = [(-5.9604645e-8, -1.4901161e-7, -1), (-5.9604645e-8, -1.4901161e-7, -1), (-5.9604645e-8, -1.4901161e-7, -1), (-5.9604645e-8, -1.4901161e-7, -1), (2.9802322e-8, 1.4901161e-7, 1), (2.9802322e-8, 1.4901161e-7, 1), (2.9802322e-8, 1.4901161e-7, 1), (2.9802322e-8, 1.4901161e-7, 1), (-1, 8.940697e-8, -1.4654944e-14), (-1, 8.940697e-8, -1.4654944e-14), (-1, 8.940697e-8, -1.4654944e-14), (-1, 8.940697e-8, -1.4654944e-14), (-7.4505806e-8, -1, 1.7881393e-7), (-7.4505806e-8, -1, 1.7881393e-7), (-7.4505806e-8, -1, 1.7881393e-7), (-7.4505806e-8, -1, 1.7881393e-7), (1, -8.940697e-8, 1.4654944e-14), (1, -8.940697e-8, 1.4654944e-14), (1, -8.940697e-8, 1.4654944e-14), (1, -8.940697e-8, 1.4654944e-14), (7.4505806e-8, 1, -1.7881393e-7), (7.4505806e-8, 1, -1.7881393e-7), (7.4505806e-8, 1, -1.7881393e-7), (7.4505806e-8, 1, -1.7881393e-7)] (
+                interpolation = "faceVarying"
+            )
+            point3f[] points = [(-0.99999994, 0.99999994, -1.0000001), (-0.99999994, 1.0000002, 0.9999998), (1.0000001, 0.99999976, -1.0000001), (1.0000001, 1.0000001, 0.9999998), (-1.0000001, -1.0000001, -0.9999998), (-1.0000001, -0.99999976, 1.0000001), (0.99999994, -1.0000002, -0.9999998), (0.99999994, -0.99999994, 1.0000001)]
+            texCoord2f[] primvars:st = [(0.0132384, 0.82758963), (0.0132384, 0.82758963), (0.0132384, 0.82758963), (0.0132384, 0.82758963), (0.0132384, 0.82758963), (0.0132384, 0.82758963), (0.0132384, 0.82758963), (0.0132384, 0.82758963)] (
+                interpolation = "faceVarying"
+            )
+            int[] primvars:st:indices = [2, 6, 4, 0, 7, 3, 1, 5, 4, 5, 1, 0, 6, 7, 5, 4, 2, 3, 7, 6, 0, 1, 3, 2]
+            uniform token subdivisionScheme = "none"
+            custom string userProperties:blender:data_name = "Cube.506"
+        }
+    }
+
+    def Scope "_materials"
+    {
+        def Material "Atlas"
+        {
+            token outputs:surface.connect = </root/_materials/Atlas/Principled_BSDF.outputs:surface>
+            custom string userProperties:blender:data_name = "Atlas"
+
+            def Shader "Principled_BSDF"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                float inputs:clearcoat = 0
+                float inputs:clearcoatRoughness = 0.03
+                color3f inputs:diffuseColor.connect = </root/_materials/Atlas/Image_Texture.outputs:rgb>
+                color3f inputs:emissiveColor = (0, 0, 0)
+                float inputs:ior = 1.5
+                float inputs:metallic = 0
+                float inputs:opacity = 1
+                float inputs:roughness = 0.5
+                float inputs:specular = 0.5
+                token outputs:surface
+            }
+
+            def Shader "Image_Texture"
+            {
+                uniform token info:id = "UsdUVTexture"
+                token inputs:sourceColorSpace = "sRGB"
+                float2 inputs:st.connect = </root/_materials/Atlas/uvmap.outputs:result>
+                token inputs:wrapS = "repeat"
+                token inputs:wrapT = "repeat"
+                float3 outputs:rgb
+            }
+
+            def Shader "uvmap"
+            {
+                uniform token info:id = "UsdPrimvarReader_float2"
+                string inputs:varname = "st"
+                float2 outputs:result
+            }
+        }
+    }
+}
+

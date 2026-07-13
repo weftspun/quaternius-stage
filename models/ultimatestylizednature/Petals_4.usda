@@ -1,0 +1,71 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+    doc = "Blender v5.1.2"
+    metersPerUnit = 1
+    upAxis = "Y"
+)
+
+def Xform "root" (
+    customData = {
+        dictionary Blender = {
+            bool generated = 1
+        }
+    }
+)
+{
+    float3 xformOp:rotateXYZ = (-90, -0, 0)
+    uniform token[] xformOpOrder = ["xformOp:rotateXYZ"]
+
+    def Xform "Petals_4"
+    {
+        custom string userProperties:blender:object_name = "Petals_4"
+
+        def Mesh "Plane_033" (
+            active = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            uniform bool doubleSided = 1
+            float3[] extent = [(-0.20964122, -0.20280454, -0.006551155), (0.20495012, 0.13870962, 0.14857417)]
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [0, 2, 1, 0, 3, 2, 0, 4, 3, 0, 5, 4, 0, 6, 5, 0, 1, 6]
+            rel material:binding = </root/_materials/Bush_Leaves>
+            normal3f[] normals = [(-0.008491558, -0.325154, 0.945623), (-0.2216681, -0.65319365, 0.7240175), (0.21678774, -0.648866, 0.7293669), (-0.008491558, -0.325154, 0.945623), (-0.44605443, -0.2969454, 0.8443097), (-0.2216681, -0.65319365, 0.7240175), (-0.008491558, -0.325154, 0.945623), (-0.23222059, 0.06401605, 0.97055423), (-0.44605443, -0.2969454, 0.8443097), (-0.008491558, -0.325154, 0.945623), (0.2063561, 0.06878249, 0.97605634), (-0.23222059, 0.06401605, 0.97055423), (-0.008491558, -0.325154, 0.945623), (0.43062946, -0.28778777, 0.85541594), (0.2063561, 0.06878249, 0.97605634), (-0.008491558, -0.325154, 0.945623), (0.21678774, -0.648866, 0.7293669), (0.43062946, -0.28778777, 0.85541594)] (
+                interpolation = "faceVarying"
+            )
+            point3f[] points = [(-0.0016114485, 0.0007977964, -0.006551155), (-0.10851333, 0.13657719, 0.1460163), (0.09867506, 0.13870962, 0.14857417), (0.20495012, -0.029825337, 0.091806464), (0.10360793, -0.20067227, 0.031912874), (-0.10358046, -0.20280454, 0.029354777), (-0.20964122, -0.03417977, 0.086406715)]
+            texCoord2f[] primvars:st = [(0.613803, 0.81414086), (0.6037132, 0.608292), (0.4304878, 0.7199544), (0.44057754, 0.9258033), (0.6238928, 1.0199897), (0.79711825, 0.90832734), (0.78702855, 0.7024785)] (
+                interpolation = "faceVarying"
+            )
+            int[] primvars:st:indices = [0, 2, 1, 0, 3, 2, 0, 4, 3, 0, 5, 4, 0, 6, 5, 0, 1, 6]
+            uniform token subdivisionScheme = "none"
+            custom string userProperties:blender:data_name = "Plane.033"
+        }
+    }
+
+    def Scope "_materials"
+    {
+        def Material "Bush_Leaves"
+        {
+            token outputs:surface.connect = </root/_materials/Bush_Leaves/Principled_BSDF.outputs:surface>
+            custom string userProperties:blender:data_name = "Bush_Leaves"
+
+            def Shader "Principled_BSDF"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                float inputs:clearcoat = 0
+                float inputs:clearcoatRoughness = 0.03
+                color3f inputs:diffuseColor = (0.8, 0.8, 0.8)
+                color3f inputs:emissiveColor = (0, 0, 0)
+                float inputs:ior = 1.5
+                float inputs:metallic = 0
+                float inputs:opacity = 1
+                float inputs:roughness = 0.5527864
+                float inputs:specular = 1
+                token outputs:surface
+            }
+        }
+    }
+}
+

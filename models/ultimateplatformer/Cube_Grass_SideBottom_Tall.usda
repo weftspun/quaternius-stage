@@ -1,0 +1,157 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+    doc = "Blender v5.1.2"
+    metersPerUnit = 1
+    upAxis = "Y"
+)
+
+def Xform "root" (
+    customData = {
+        dictionary Blender = {
+            bool generated = 1
+        }
+    }
+)
+{
+    float3 xformOp:rotateXYZ = (-90, -0, 0)
+    uniform token[] xformOpOrder = ["xformOp:rotateXYZ"]
+
+    def Xform "Cube_Grass_SideBottom_Tall"
+    {
+        custom string userProperties:blender:object_name = "Cube_Grass_SideBottom_Tall"
+
+        def Mesh "Cube_388" (
+            active = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            uniform bool doubleSided = 1
+            float3[] extent = [(-0.99999994, -0.99999994, -0.99999994), (0.99999994, 1.0000001, 1)]
+            int[] faceVertexCounts = [4, 4, 4, 4, 4, 4, 4, 4, 4]
+            int[] faceVertexIndices = [8, 6, 2, 17, 0, 3, 5, 1, 2, 6, 7, 4, 4, 7, 5, 3, 9, 16, 15, 10, 12, 11, 14, 13, 11, 10, 15, 14, 9, 8, 17, 16, 12, 13, 18, 19]
+            rel material:binding = </root/_materials/Green_Light>
+            normal3f[] normals = [(0, -1, 0), (0, -0.98078525, -0.19509043), (0, -0.98078525, -0.19509043), (0, -1, 0), (0, 0, -1), (0, -0.19509, -0.9807853), (0, -0.19509, -0.9807853), (0, 0, -1), (0, -0.98078525, -0.19509043), (0, -0.98078525, -0.19509043), (0, -0.9238795, -0.3826836), (0, -0.9238795, -0.3826836), (0, -0.38268283, -0.92387974), (0, -0.38268283, -0.92387974), (0, -0.19509, -0.9807853), (0, -0.19509, -0.9807853), (0, -1, 0), (0, -1, 0), (0, -1, 0), (0, -1, 0), (0, -1, 0), (0, -1, 0), (0, -1, 0), (0, -1, 0), (0, -1, 0), (0, -1, 0), (0, -1, 0), (0, -1, 0), (0, -1, 0), (0, -1, 0), (0, -1, 0), (0, -1, 0), (0, -1, 0), (0, -1, 0), (0, -1, 0), (0, -1, 0)] (
+                interpolation = "faceVarying"
+            )
+            point3f[] points = [(0.99999994, 1.0000001, -0.99999994), (-0.99999994, 1.0000001, -0.99999994), (0.99999994, -0.99999994, -0.8735845), (0.99999994, -0.87358457, -0.99999994), (0.99999994, -0.96297365, -0.96297383), (-0.99999994, -0.87358457, -0.99999994), (-0.99999994, -0.99999994, -0.8735845), (-0.99999994, -0.96297365, -0.96297383), (-0.99999994, -0.99999994, -0.6239889), (-0.99999994, -0.99999994, -0.3276684), (-0.99999994, -0.99999994, -0.024297606), (-0.99999994, -0.99999994, 0.2812558), (-0.99999994, -0.99999994, 0.6239889), (0.99999994, -0.99999994, 0.6239889), (0.99999994, -0.99999994, 0.2812558), (0.99999994, -0.99999994, -0.024297606), (0.99999994, -0.99999994, -0.3276684), (0.99999994, -0.99999994, -0.6239889), (0.99999994, -0.99999994, 1), (-0.99999994, -0.99999994, 1)]
+            uniform token subdivisionScheme = "none"
+            uniform token subsetFamily:materialBind:familyType = "nonOverlapping"
+            custom string userProperties:blender:data_name = "Cube.388"
+
+            def GeomSubset "Dirt_1" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                uniform token elementType = "face"
+                uniform token familyName = "materialBind"
+                int[] indices = [1, 2, 3, 4, 8]
+                rel material:binding = </root/_materials/Dirt_1>
+            }
+
+            def GeomSubset "Dirt_2" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                uniform token elementType = "face"
+                uniform token familyName = "materialBind"
+                int[] indices = [5, 7]
+                rel material:binding = </root/_materials/Dirt_2>
+            }
+
+            def GeomSubset "Dirt_3" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                uniform token elementType = "face"
+                uniform token familyName = "materialBind"
+                int[] indices = [0, 6]
+                rel material:binding = </root/_materials/Dirt_3>
+            }
+        }
+    }
+
+    def Scope "_materials"
+    {
+        def Material "Green_Light"
+        {
+            token outputs:surface.connect = </root/_materials/Green_Light/Principled_BSDF.outputs:surface>
+            custom string userProperties:blender:data_name = "Green_Light"
+
+            def Shader "Principled_BSDF"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                float inputs:clearcoat = 0
+                float inputs:clearcoatRoughness = 0.03
+                color3f inputs:diffuseColor = (0.31286794, 0.41093433, 0.02278113)
+                float inputs:ior = 1.5
+                float inputs:metallic = 0
+                float inputs:opacity = 1
+                float inputs:roughness = 0.6900348
+                float inputs:specular = 0.5
+                token outputs:surface
+            }
+        }
+
+        def Material "Dirt_1"
+        {
+            token outputs:surface.connect = </root/_materials/Dirt_1/Principled_BSDF.outputs:surface>
+            custom string userProperties:blender:data_name = "Dirt_1"
+
+            def Shader "Principled_BSDF"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                float inputs:clearcoat = 0
+                float inputs:clearcoatRoughness = 0.03
+                color3f inputs:diffuseColor = (0.48689133, 0.246964, 0.10193235)
+                float inputs:ior = 1.5
+                float inputs:metallic = 0
+                float inputs:opacity = 1
+                float inputs:roughness = 0.6900348
+                float inputs:specular = 0.5
+                token outputs:surface
+            }
+        }
+
+        def Material "Dirt_2"
+        {
+            token outputs:surface.connect = </root/_materials/Dirt_2/Principled_BSDF.outputs:surface>
+            custom string userProperties:blender:data_name = "Dirt_2"
+
+            def Shader "Principled_BSDF"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                float inputs:clearcoat = 0
+                float inputs:clearcoatRoughness = 0.03
+                color3f inputs:diffuseColor = (0.31853473, 0.16343075, 0.068858825)
+                float inputs:ior = 1.5
+                float inputs:metallic = 0
+                float inputs:opacity = 1
+                float inputs:roughness = 0.6900348
+                float inputs:specular = 0.5
+                token outputs:surface
+            }
+        }
+
+        def Material "Dirt_3"
+        {
+            token outputs:surface.connect = </root/_materials/Dirt_3/Principled_BSDF.outputs:surface>
+            custom string userProperties:blender:data_name = "Dirt_3"
+
+            def Shader "Principled_BSDF"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                float inputs:clearcoat = 0
+                float inputs:clearcoatRoughness = 0.03
+                color3f inputs:diffuseColor = (0.7873924, 0.3653056, 0.1698924)
+                float inputs:ior = 1.5
+                float inputs:metallic = 0
+                float inputs:opacity = 1
+                float inputs:roughness = 0.6900348
+                float inputs:specular = 0.5
+                token outputs:surface
+            }
+        }
+    }
+}
+

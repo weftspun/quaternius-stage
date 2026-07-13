@@ -1,0 +1,71 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+    doc = "Blender v5.1.2"
+    metersPerUnit = 1
+    upAxis = "Y"
+)
+
+def Xform "root" (
+    customData = {
+        dictionary Blender = {
+            bool generated = 1
+        }
+    }
+)
+{
+    float3 xformOp:rotateXYZ = (-90, -0, 0)
+    uniform token[] xformOpOrder = ["xformOp:rotateXYZ"]
+
+    def Xform "Bricks_Single"
+    {
+        custom string userProperties:blender:object_name = "Bricks_Single"
+
+        def Mesh "Cube_177" (
+            active = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            uniform bool doubleSided = 1
+            float3[] extent = [(-0.119380355, -0.068212666, -0.07386737), (0.119380236, 0.068212666, 0.07386738)]
+            int[] faceVertexCounts = [4, 4, 4, 4, 4]
+            int[] faceVertexIndices = [0, 1, 3, 2, 6, 7, 5, 4, 4, 5, 1, 0, 2, 6, 4, 0, 7, 3, 1, 5]
+            rel material:binding = </root/_materials/Texture>
+            normal3f[] normals = [(-1, 0, 0), (-1, 0, 0), (-1, 0, 0), (-1, 0, 0), (0.99999994, -9.4976734e-8, 0), (0.99999994, -9.4976734e-8, 0), (0.99999994, -9.4976734e-8, 0), (0.99999994, -9.4976734e-8, 0), (0, -1, 0), (0, -1, 0), (0, -1, 0), (0, -1, 0), (-0.012582861, 0.022021538, -0.99967825), (-0.012582861, 0.022021538, -0.99967825), (-0.012582861, 0.022021538, -0.99967825), (-0.012582861, 0.022021538, -0.99967825), (-0.012111777, -0.008881238, 0.9998872), (-0.012111777, -0.008881238, 0.9998872), (-0.012111777, -0.008881238, 0.9998872), (-0.012111777, -0.008881238, 0.9998872)] (
+                interpolation = "faceVarying"
+            )
+            point3f[] points = [(-0.119380355, -0.068212666, -0.07386737), (-0.119380355, -0.068212666, 0.06976348), (-0.119380355, 0.068212666, -0.06785685), (-0.119380355, 0.068212666, 0.06422414), (0.119380236, -0.068212666, -0.07386737), (0.119380236, -0.068212666, 0.06590451), (0.119380236, 0.068212666, -0.07386737), (0.119380236, 0.068212666, 0.07386738)]
+            texCoord2f[] primvars:st = [(0.34949556, 0.85678124), (0.33032936, 0.8252976), (0.36806694, 0.82529753), (0.34949556, 0.86624736), (0.3399694, 0.8252976), (0.36784384, 0.8410332), (0.34033912, 0.8571774), (0.35890296, 0.8252971), (0.34033912, 0.8658823), (0.35869098, 0.84103376), (0.377016, 0.86650586), (0.33032936, 0.8095619), (0.36806694, 0.8095619), (0.37701598, 0.8572941), (0.33971038, 0.8095619), (0.36784652, 0.8567691), (0.36785957, 0.86650586), (0.3589139, 0.80956256), (0.36785957, 0.8567693), (0.35868585, 0.8567691)] (
+                interpolation = "faceVarying"
+            )
+            int[] primvars:st:indices = [0, 3, 8, 6, 16, 18, 13, 10, 11, 14, 4, 1, 7, 17, 12, 2, 19, 9, 5, 15]
+            uniform token subdivisionScheme = "none"
+            custom string userProperties:blender:data_name = "Cube.177"
+        }
+    }
+
+    def Scope "_materials"
+    {
+        def Material "Texture"
+        {
+            token outputs:surface.connect = </root/_materials/Texture/Principled_BSDF.outputs:surface>
+            custom string userProperties:blender:data_name = "Texture"
+
+            def Shader "Principled_BSDF"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                float inputs:clearcoat = 0
+                float inputs:clearcoatRoughness = 0.03
+                color3f inputs:diffuseColor = (0.8, 0.8, 0.8)
+                color3f inputs:emissiveColor = (0, 0, 0)
+                float inputs:ior = 1.5
+                float inputs:metallic = 0
+                float inputs:opacity = 1
+                float inputs:roughness = 0.5527864
+                float inputs:specular = 1
+                token outputs:surface
+            }
+        }
+    }
+}
+

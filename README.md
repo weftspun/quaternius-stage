@@ -15,9 +15,9 @@ Conventions (verified): **Y-up, −Z forward, right-handed, real-world meters**.
 ## Rebuild
 Quaternius serves each pack as a public Google Drive folder. Two fetchers:
 
-**Preferred — official Drive API** (pixi; pagination + backoff, robust vs rate limits). Needs a free key (console.cloud.google.com → enable *Google Drive API* → API key):
+**Preferred — official Drive API** (pixi; pagination + backoff, robust vs rate limits). Auth with a service account (`GOOGLE_APPLICATION_CREDENTIALS`) or an API key (`GOOGLE_API_KEY`) — the project needs *Google Drive API* enabled:
 ```bash
-export GOOGLE_API_KEY=AIza...
+export GOOGLE_APPLICATION_CREDENTIALS=/path/to/service-account.json   # or GOOGLE_API_KEY=AIza...
 pixi run python drive_fetch.py drive_manifest.tsv _dl          # FBX only, resumable
 blender -b --factory-startup --python fbx_to_usda_batch.py -- _dl/<pack>/FBX models/<pack>
 py -3 build_etnf.py models drive_manifest.tsv quaternius.parquet

@@ -28,10 +28,16 @@ from googleapiclient.http import MediaIoBaseDownload
 
 FOLDER_MIME = "application/vnd.google-apps.folder"
 _RETRY_STATUS = {403, 429, 500, 502, 503, 504}
+_SCOPES = ["https://www.googleapis.com/auth/drive.readonly"]
 
 
-def _service(api_key: str):
+def _service(api_key: str | None, creds_file: str | None):
     # cache_discovery=False avoids a noisy warning on 3.12+.
+    if creds_file:
+        from google.oauth2 import service_account
+
+        creds = service_account.Credentials.from_service_account_file(creds_file, scopes=_SCOPES)
+        return build("drive", "v3", credentials=creds, cache_discovery=False)
     return build("drive", "v3", developerKey=api_key, cache_discovery=False)
 
 
@@ -69,13 +75,29 @@ def list_children(svc, folder_id: str) -> list[dict]:
             return out
 
 
-def find_fbx_files(svc, pack_folder_id: str) -> list[dict]:
-    """Return the .fbx files under the pack's FBX subfolder (or the pack root if flat)."""
-    children = list_children(svc, pack_folder_id)
-    fbx_dirs = [c for c in children if c["mimeType"] == FOLDER_MIME and c["name"].lower() == "fbx"]
-    search_id = fbx_dirs[0]["id"] if fbx_dirs else pack_folder_id
-    files = list_children(svc, search_id) if fbx_dirs else children
-    return [f for f in files if f["name"].lower().endswith(".fbx")]
+def find_fbx_files(svc, pack_folder_id: str, max_depth: int = 4) -> list[dict]:
+    """Every .fbx anywhere under the pack folder (handles flat `FBX/` and nested
+    `<Category>/FBX/` layouts alike). Colliding basenames across categories are
+    disambiguated with the parent-folder name so the flat download won't overwrite.
+    """
+    found, seen = [], {}
+
+    def walk(fid, depth, parent):
+        if depth > max_depth:
+            return
+        for c in list_children(svc, fid):
+            if c["mimeType"] == FOLDER_MIME:
+                walk(c["id"], depth + 1, c["name"])
+            elif c["name"].lower().endswith(".fbx"):
+                name = c["name"]
+                if name in seen and parent:
+                    stem = name[:-4]
+                    name = f"{stem}__{parent}.fbx"
+                seen[name] = True
+                found.append({"id": c["id"], "name": name})
+
+    walk(pack_folder_id, 0, "")
+    return found
 
 
 def download(svc, file_id: str, dest: Path) -> None:
@@ -98,16 +120,19 @@ def download(svc, file_id: str, dest: Path) -> None:
 
 
 def main() -> None:
-    args = [a for a in sys.argv[1:] if not a.startswith("--api-key=")]
+    args = [a for a in sys.argv[1:] if not a.startswith("--")]
     key = os.environ.get("GOOGLE_API_KEY") or next(
         (a.split("=", 1)[1] for a in sys.argv[1:] if a.startswith("--api-key=")), None
     )
-    if not key:
-        raise SystemExit("set GOOGLE_API_KEY (or --api-key=...) — a Drive-API-enabled key")
+    creds_file = os.environ.get("GOOGLE_APPLICATION_CREDENTIALS") or next(
+        (a.split("=", 1)[1] for a in sys.argv[1:] if a.startswith("--creds=")), None
+    )
+    if not key and not creds_file:
+        raise SystemExit("set GOOGLE_APPLICATION_CREDENTIALS (service account) or GOOGLE_API_KEY")
 
     manifest, out_dir = args[0], Path(args[1])
     only = args[2] if len(args) > 2 else None
-    svc = _service(key)
+    svc = _service(key, creds_file)
 
     fetched = skipped = failed = 0
     for line in Path(manifest).read_text().splitlines():
