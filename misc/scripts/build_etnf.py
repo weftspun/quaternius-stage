@@ -6,7 +6,7 @@ lake (same namespace + `asset:<natural_key>` rule), so this catalog joins that l
 Quaternius has many packs that reuse model names (Fence, Tree, ...), so the natural key is
 namespaced by pack: `quaternius:<pack>/<model>`.
 
-Usage: python build_etnf.py <models_dir> <drive_manifest.tsv> <out.parquet>
+Usage: python build_etnf.py <models_dir> <drive_manifest.parquet> <out.parquet>
 """
 
 from __future__ import annotations
@@ -33,18 +33,16 @@ def asset_uuid(natural_key: str) -> str:
 
 def build(models_dir: str, manifest_file: str, out: str) -> pd.DataFrame:
     folder_by_pack = {}
-    for line in Path(manifest_file).read_text().splitlines():
-        parts = line.rstrip("\n").split("\t")
-        if len(parts) == 2 and parts[1]:
-            folder_by_pack[parts[0]] = f"https://drive.google.com/drive/folders/{parts[1]}"
+    for r in pd.read_parquet(manifest_file).itertuples(index=False):
+        if isinstance(r.folder_id, str) and r.folder_id:
+            folder_by_pack[r.pack] = f"https://drive.google.com/drive/folders/{r.folder_id}"
 
     # itch.io-only mega-kits: source is the itch page (pack, slug, game_id).
-    itch = Path(manifest_file).parent / "itch_manifest.tsv"
+    itch = Path(manifest_file).parent / "itch_manifest.parquet"
     if itch.exists():
-        for line in itch.read_text().splitlines():
-            parts = line.rstrip("\n").split("\t")
-            if len(parts) == 3 and parts[1]:
-                folder_by_pack.setdefault(parts[0], f"https://quaternius.itch.io/{parts[1]}")
+        for r in pd.read_parquet(itch).itertuples(index=False):
+            if isinstance(r.slug, str) and r.slug:
+                folder_by_pack.setdefault(r.pack, f"https://quaternius.itch.io/{r.slug}")
 
     rows = []
     for usd in sorted(Path(models_dir).glob("*/*.usda")):

@@ -8,8 +8,8 @@ Set a key (free: console.cloud.google.com -> enable "Google Drive API" -> API ke
     export GOOGLE_API_KEY=AIza...            # or pass --api-key
 
 Usage:
-    pixi run python drive_fetch.py drive_manifest.tsv _dl        # all packs, FBX only
-    pixi run python drive_fetch.py drive_manifest.tsv _dl cars   # one pack
+    pixi run python drive_fetch.py drive_manifest.parquet _dl        # all packs, FBX only
+    pixi run python drive_fetch.py drive_manifest.parquet _dl cars   # one pack
 
 Resumable: a pack whose out/<pack>/*.fbx already exist is skipped. Only the FBX
 subfolder is fetched (topology-preserving; glTF triangulates, .blend is huge).
@@ -134,12 +134,13 @@ def main() -> None:
     only = args[2] if len(args) > 2 else None
     svc = _service(key, creds_file)
 
+    import pandas as pd
+
     fetched = skipped = failed = 0
-    for line in Path(manifest).read_text().splitlines():
-        parts = line.rstrip("\n").split("\t")
-        if len(parts) != 2 or not parts[1]:
+    for r in pd.read_parquet(manifest).itertuples(index=False):
+        pack, fid = r.pack, r.folder_id
+        if not isinstance(fid, str) or not fid:  # itch-only packs have no Drive folder
             continue
-        pack, fid = parts
         if only and pack != only:
             continue
         dest_dir = out_dir / pack / "FBX"

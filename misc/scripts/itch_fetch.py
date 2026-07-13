@@ -7,8 +7,8 @@ itch requires an API key (free: https://itch.io/user/settings/api-keys). Flow pe
 Extracted FBX land in <out>/<pack>/FBX/, so convert_all.sh converts them like the rest.
 
     export ITCH_API_KEY=...
-    pixi run python itch_fetch.py itch_manifest.tsv _dl        # all 11
-    pixi run python itch_fetch.py itch_manifest.tsv _dl downtowncitymegakit
+    pixi run python itch_fetch.py itch_manifest.parquet _dl        # all 11
+    pixi run python itch_fetch.py itch_manifest.parquet _dl downtowncitymegakit
 """
 
 from __future__ import annotations
@@ -93,12 +93,13 @@ def main() -> None:
     only = args[2] if len(args) > 2 else None
     tmp = Path("_itch")
 
+    import pandas as pd
+
     ok = fail = skip = 0
-    for line in Path(manifest).read_text().splitlines():
-        parts = line.rstrip("\n").split("\t")
-        if len(parts) != 3 or not parts[2]:
+    for r in pd.read_parquet(manifest).itertuples(index=False):
+        pack, slug, gid = r.pack, r.slug, str(r.game_id)
+        if not gid or gid == "nan":
             continue
-        pack, slug, gid = parts
         if only and pack != only:
             continue
         fbx_dir = out_dir / pack / "FBX"
