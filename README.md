@@ -1,15 +1,15 @@
 # quaternius-stage
 
-OpenUSD (`.usda`) copy of [Quaternius](https://quaternius.com) CC0 low-poly packs — converted from **FBX** (topology-preserving; glTF triangulates), n-gon/quad topology kept.
+OpenUSD (`.usda`) copy of [Quaternius](https://quaternius.com) CC0 low-poly packs — **71 packs, 2,864 models**, converted from **FBX** (topology-preserving; glTF triangulates), n-gon/quad topology kept.
 
-Conventions (verified): **Y-up, −Z forward, right-handed, real-world meters**. Keyed by ETNF `asset_uuid` in `quaternius.parquet`, natural key `quaternius:<pack>/<model>`.
+Conventions (verified across all 2,864): **Y-up, −Z forward, right-handed, real-world meters**. Keyed by ETNF `asset_uuid` in `quaternius.parquet`, natural key `quaternius:<pack>/<model>`.
 
 ## Layout
-- `models/<pack>/<Model>.usda` — the meshes
+- `models/<pack>/<Model>.usda` — the meshes (2,864 across 71 packs)
 - `quaternius.parquet` — ETNF catalog (one row per model)
 - `drive_manifest.tsv` — every pack → its Google Drive folder id (71/82 resolved)
-- `fbx_to_usda_batch.py` — Blender ufbx → `.usda`
-- `fetch_convert_all.sh` — resumable: gdown each folder, convert its FBX
+- `drive_fetch.py` — Drive-API FBX fetch (pixi); `fetch_convert_all.sh` — gdown fallback
+- `fbx_to_usda_batch.py` — Blender ufbx → `.usda`; `convert_all.sh` — batch it
 - `build_etnf.py` — build the parquet
 
 ## Rebuild
@@ -27,6 +27,6 @@ py -3 build_etnf.py models drive_manifest.tsv quaternius.parquet
 ```bash
 bash fetch_convert_all.sh drive_manifest.tsv _dl   # resumable
 ```
-11 mega-kits load their link differently and aren't in the manifest yet.
+The recursive FBX finder in `drive_fetch.py` handles both flat `FBX/` and nested `<Category>/FBX/` layouts. 11 mega-kits load their Drive link differently and aren't in the manifest yet.
 
 License: **CC0-1.0** (Quaternius / @Quaternius). See `LICENSE`.
