@@ -1,0 +1,98 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+    doc = "Blender v5.1.2"
+    metersPerUnit = 1
+    upAxis = "Y"
+)
+
+def Xform "root" (
+    customData = {
+        dictionary Blender = {
+            bool generated = 1
+        }
+    }
+)
+{
+    float3 xformOp:rotateXYZ = (-90, -0, 0)
+    uniform token[] xformOpOrder = ["xformOp:rotateXYZ"]
+
+    def Xform "Petal_1"
+    {
+        custom string userProperties:blender:object_name = "Petal_1"
+
+        def Mesh "Plane_028" (
+            active = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            uniform bool doubleSided = 1
+            float3[] extent = [(-0.25691634, -0.22596584, 0.0000011849182), (0.20332271, 0.22899581, 0.24367443)]
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [1, 0, 13, 10, 8, 13, 8, 7, 13, 4, 2, 13, 7, 6, 13, 12, 11, 13, 5, 4, 13, 6, 9, 13, 0, 12, 13, 11, 10, 13, 9, 5, 13, 3, 1, 13, 2, 3, 13]
+            rel material:binding = </root/_materials/Flowers>
+            normal3f[] normals = [(-0.3568031, 0.5218397, 0.7748385), (-0.7265794, 0.06470577, 0.68402886), (0.009781494, -0.024174578, 0.9996599), (-0.4323059, -0.54356253, 0.71947986), (-0.09414396, -0.6987035, 0.7091899), (0.009781494, -0.024174578, 0.9996599), (-0.09414396, -0.6987035, 0.7091899), (0.2562429, -0.69808555, 0.66859263), (0.009781494, -0.024174578, 0.9996599), (0.4939101, 0.5254464, 0.6927906), (0.31800708, 0.755406, 0.57291645), (0.009781494, -0.024174578, 0.9996599), (0.2562429, -0.69808555, 0.66859263), (0.5051411, -0.6467739, 0.5714157), (0.009781494, -0.024174578, 0.9996599), (-0.835507, -0.04236721, 0.547844), (-0.6937523, -0.2308639, 0.6822094), (0.009781494, -0.024174578, 0.9996599), (0.68274665, 0.034700427, 0.72983074), (0.4939101, 0.5254464, 0.6927906), (0.009781494, -0.024174578, 0.9996599), (0.5051411, -0.6467739, 0.5714157), (0.58866704, -0.45288482, 0.6696016), (0.009781494, -0.024174578, 0.9996599), (-0.7265794, 0.06470577, 0.68402886), (-0.835507, -0.04236721, 0.547844), (0.009781494, -0.024174578, 0.9996599), (-0.6937523, -0.2308639, 0.6822094), (-0.4323059, -0.54356253, 0.71947986), (0.009781494, -0.024174578, 0.9996599), (0.58866704, -0.45288482, 0.6696016), (0.68274665, 0.034700427, 0.72983074), (0.009781494, -0.024174578, 0.9996599), (0.18712036, 0.6875755, 0.70158803), (-0.3568031, 0.5218397, 0.7748385), (0.009781494, -0.024174578, 0.9996599), (0.31800708, 0.755406, 0.57291645), (0.18712036, 0.6875755, 0.70158803), (0.009781494, -0.024174578, 0.9996599)] (
+                interpolation = "faceVarying"
+            )
+            point3f[] points = [(0.20332271, -0.06837543, 0.22243795), (0.14907794, -0.22378454, 0.21936405), (-0.053183954, -0.10201761, 0.16403648), (-0.015764218, -0.22596584, 0.22565936), (-0.16077095, -0.15682203, 0.2335625), (-0.25691634, -0.02656458, 0.24160756), (-0.06784096, 0.09832401, 0.17126562), (-0.05189678, 0.21237476, 0.24163418), (0.08503019, 0.22899581, 0.2368979), (-0.18991372, 0.11342236, 0.24367443), (0.12840834, 0.20831263, 0.23453394), (0.19431077, 0.089998, 0.22805366), (0.10551323, 0.0073269056, 0.16148148), (0.0000017139424, 5.221963e-7, 0.0000011849182)]
+            texCoord2f[] primvars:st = [(0.56045747, 0.742817), (0.5430953, 0.8998578), (0.76853603, 0.8829952), (0.6843061, 0.9698409), (0.8378475, 0.9698409), (0.97448283, 0.8967131), (0.8638393, 0.7154923), (0.89632916, 0.6050271), (0.7851419, 0.53406537), (0.97448283, 0.7477634), (0.73921156, 0.53406537), (0.6335764, 0.6093387), (0.67684263, 0.7227123), (0.764473, 0.7561946)] (
+                interpolation = "faceVarying"
+            )
+            int[] primvars:st:indices = [1, 0, 13, 10, 8, 13, 8, 7, 13, 4, 2, 13, 7, 6, 13, 12, 11, 13, 5, 4, 13, 6, 9, 13, 0, 12, 13, 11, 10, 13, 9, 5, 13, 3, 1, 13, 2, 3, 13]
+            uniform token subdivisionScheme = "none"
+            custom string userProperties:blender:data_name = "Plane.028"
+        }
+    }
+
+    def Scope "_materials"
+    {
+        def Material "Flowers"
+        {
+            token outputs:surface.connect = </root/_materials/Flowers/Principled_BSDF.outputs:surface>
+            custom string userProperties:blender:data_name = "Flowers"
+
+            def Shader "Principled_BSDF"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                float inputs:clearcoat = 0
+                float inputs:clearcoatRoughness = 0.03
+                color3f inputs:diffuseColor.connect = </root/_materials/Flowers/Image_Texture.outputs:rgb>
+                float inputs:ior = 1.5
+                float inputs:metallic = 0
+                float inputs:opacity = 1
+                float inputs:opacity.connect = </root/_materials/Flowers/Image_Texture_001.outputs:r>
+                float inputs:roughness = 1
+                float inputs:specular = 0.5
+                token outputs:surface
+            }
+
+            def Shader "Image_Texture"
+            {
+                uniform token info:id = "UsdUVTexture"
+                token inputs:sourceColorSpace = "raw"
+                float2 inputs:st.connect = </root/_materials/Flowers/uvmap.outputs:result>
+                token inputs:wrapS = "repeat"
+                token inputs:wrapT = "repeat"
+                float3 outputs:rgb
+            }
+
+            def Shader "uvmap"
+            {
+                uniform token info:id = "UsdPrimvarReader_float2"
+                string inputs:varname = "st"
+                float2 outputs:result
+            }
+
+            def Shader "Image_Texture_001"
+            {
+                uniform token info:id = "UsdUVTexture"
+                token inputs:sourceColorSpace = "raw"
+                float2 inputs:st.connect = </root/_materials/Flowers/uvmap.outputs:result>
+                token inputs:wrapS = "repeat"
+                token inputs:wrapT = "repeat"
+                float outputs:r
+            }
+        }
+    }
+}
+

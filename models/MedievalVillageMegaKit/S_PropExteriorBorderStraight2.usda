@@ -1,0 +1,100 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+    doc = "Blender v5.1.2"
+    metersPerUnit = 1
+    upAxis = "Y"
+)
+
+def Xform "root" (
+    customData = {
+        dictionary Blender = {
+            bool generated = 1
+        }
+    }
+)
+{
+    float3 xformOp:rotateXYZ = (-90, -0, 0)
+    uniform token[] xformOpOrder = ["xformOp:rotateXYZ"]
+
+    def Xform "Prop_ExteriorBorder_Straight2"
+    {
+        custom string userProperties:blender:object_name = "Prop_ExteriorBorder_Straight2"
+
+        def Mesh "Cube_005" (
+            active = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            uniform bool doubleSided = 1
+            float3[] extent = [(-1.0000001, -0.7, 2.7015695e-8), (1.0000001, 0, 0.13401802)]
+            int[] faceVertexCounts = [4, 4, 5, 4, 5, 4, 4]
+            int[] faceVertexIndices = [5, 2, 7, 8, 1, 2, 5, 4, 0, 6, 7, 2, 1, 1, 4, 3, 0, 4, 5, 8, 9, 3, 8, 7, 6, 9, 3, 9, 6, 0]
+            rel material:binding = </root/_materials/MI_RockTrim>
+            normal3f[] normals = [(0, 0, 1), (0, 0, 1), (0, -0.30695623, 0.95172364), (0, -0.30695623, 0.95172364), (0, 1, 0), (0, 1, 0), (0, 1, 0), (0, 1, 0), (-1, 0, 0), (-1, 0, 0), (-1, 0, 0), (-1, 0, 0), (-1, 0, 0), (0, 0, -1), (0, 0, -1), (0, 0, -1), (0, 0, -1), (1, 0, 0), (1, 0, 0), (1, 0, 0), (1, 0, 0), (1, 0, 0), (0, -0.30695623, 0.95172364), (0, -0.30695623, 0.95172364), (0, -0.584275, 0.8115557), (0, -0.584275, 0.8115557), (0, -1, 0), (0, -1, 0), (0, -1, 0), (0, -1, 0)] (
+                interpolation = "faceVarying"
+            )
+            point3f[] points = [(-1.0000001, -0.7, 2.7015695e-8), (-1.0000001, 0, 2.7015695e-8), (-1.0000001, 0, 0.13401802), (1.0000001, -0.7, 2.7015695e-8), (1.0000001, 0, 2.7015695e-8), (1.0000001, 0, 0.13401802), (-1.0000001, -0.7, 0.119619146), (-1.0000001, -0.68, 0.13401802), (1.0000001, -0.68, 0.13401802), (1.0000001, -0.7, 0.119619146)]
+            texCoord2f[] primvars:st = [(1.0118182, 0.41829544), (0.50670725, 0.6630843), (0.50801665, 0.41509902), (0.68100697, 0.41829553), (0.50670725, 0.49379048), (0.50801665, 0.663646), (0.50670725, 0.41442546), (0.68100697, 0.4855923), (1.0103717, 0.6630843), (0.68100697, 0.41829544), (1.0079455, 0.41509902), (1.0103717, 0.49379048), (1.0118182, 0.4182955), (1.0079455, 0.663646), (1.0103717, 0.41442546), (1.0118182, 0.4855923), (1.0118182, 0.48007813), (0.50801665, 0.4889322), (1.0061612, 0.48559222), (0.50801665, 0.49394673), (0.68666404, 0.48559225), (1.0079455, 0.49394673), (0.68100697, 0.48007813), (1.0079455, 0.4889322)] (
+                interpolation = "faceVarying"
+            )
+            int[] primvars:st:indices = [13, 5, 19, 21, 4, 6, 14, 11, 0, 16, 18, 7, 3, 4, 11, 8, 1, 12, 15, 20, 22, 9, 21, 19, 17, 23, 10, 23, 17, 2]
+            uniform token subdivisionScheme = "none"
+            custom string userProperties:blender:data_name = "Cube.005"
+        }
+    }
+
+    def Scope "_materials"
+    {
+        def Material "MI_RockTrim"
+        {
+            token outputs:surface.connect = </root/_materials/MI_RockTrim/Principled_BSDF.outputs:surface>
+            custom string userProperties:blender:data_name = "MI_RockTrim"
+
+            def Shader "Principled_BSDF"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                float inputs:clearcoat = 0
+                float inputs:clearcoatRoughness = 0.03
+                color3f inputs:diffuseColor.connect = </root/_materials/MI_RockTrim/Image_Texture.outputs:rgb>
+                float inputs:ior = 1.5
+                float inputs:metallic = 0
+                normal3f inputs:normal.connect = </root/_materials/MI_RockTrim/Image_Texture_001.outputs:rgb>
+                float inputs:opacity = 1
+                float inputs:roughness = 0.5
+                float inputs:specular = 0.5
+                token outputs:surface
+            }
+
+            def Shader "Image_Texture"
+            {
+                uniform token info:id = "UsdUVTexture"
+                token inputs:sourceColorSpace = "sRGB"
+                float2 inputs:st.connect = </root/_materials/MI_RockTrim/uvmap.outputs:result>
+                token inputs:wrapS = "repeat"
+                token inputs:wrapT = "repeat"
+                float3 outputs:rgb
+            }
+
+            def Shader "uvmap"
+            {
+                uniform token info:id = "UsdPrimvarReader_float2"
+                string inputs:varname = "st"
+                float2 outputs:result
+            }
+
+            def Shader "Image_Texture_001"
+            {
+                uniform token info:id = "UsdUVTexture"
+                float4 inputs:bias = (-1, -1, -1, -1)
+                float4 inputs:scale = (2, 2, 2, 2)
+                token inputs:sourceColorSpace = "raw"
+                float2 inputs:st.connect = </root/_materials/MI_RockTrim/uvmap.outputs:result>
+                token inputs:wrapS = "repeat"
+                token inputs:wrapT = "repeat"
+                float3 outputs:rgb
+            }
+        }
+    }
+}
+

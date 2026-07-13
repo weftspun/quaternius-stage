@@ -1,0 +1,87 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+    doc = "Blender v5.1.2"
+    metersPerUnit = 1
+    upAxis = "Y"
+)
+
+def Xform "root" (
+    customData = {
+        dictionary Blender = {
+            bool generated = 1
+        }
+    }
+)
+{
+    float3 xformOp:rotateXYZ = (-90, -0, 0)
+    uniform token[] xformOpOrder = ["xformOp:rotateXYZ"]
+
+    def Xform "Platform_Simple2"
+    {
+        custom string userProperties:blender:object_name = "Platform_Simple2"
+
+        def Mesh "Plane_133" (
+            active = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            uniform bool doubleSided = 1
+            float3[] extent = [(-2, -2, -1.5099579e-7), (2, 2, 1.5099579e-7)]
+            int[] faceVertexCounts = [4, 4, 4, 4]
+            int[] faceVertexIndices = [2, 3, 0, 1, 5, 4, 0, 3, 6, 1, 0, 7, 8, 7, 0, 4]
+            rel material:binding = </root/_materials/MI_Trim_03>
+            normal3f[] normals = [(0, 7.5497894e-8, 1), (0, 7.5497894e-8, 1), (0, 7.5497894e-8, 1), (0, 7.5497894e-8, 1), (0, 7.5497894e-8, 1), (0, 7.5497894e-8, 1), (0, 7.5497894e-8, 1), (0, 7.5497894e-8, 1), (0, 7.5497894e-8, 1), (0, 7.5497894e-8, 1), (0, 7.5497894e-8, 1), (0, 7.5497894e-8, 1), (0, 7.5497894e-8, 1), (0, 7.5497894e-8, 1), (0, 7.5497894e-8, 1), (0, 7.5497894e-8, 1)] (
+                interpolation = "faceVarying"
+            )
+            point3f[] points = [(0, 0, 0), (-2, 0, 0), (-2, -2, 1.5099579e-7), (0, -2, 1.5099579e-7), (2, 0, 0), (2, -2, 1.5099579e-7), (-2, 2, -1.5099579e-7), (0, 2, -1.5099579e-7), (2, 2, -1.5099579e-7)]
+            texCoord2f[] primvars:st = [(0.42140403, 0.30672866), (0.42140403, 0.023266211), (0.74994576, 0.023266211), (0.74994576, 0.30672866), (0.42140403, 0.023266211), (0.74994576, 0.023266211), (0.74994576, 0.023266211), (0.74994576, 0.30672866), (0.74994576, 0.023266211)] (
+                interpolation = "faceVarying"
+            )
+            int[] primvars:st:indices = [2, 3, 0, 1, 5, 4, 0, 3, 6, 1, 0, 7, 8, 7, 0, 4]
+            uniform token subdivisionScheme = "none"
+            custom string userProperties:blender:data_name = "Plane.133"
+        }
+    }
+
+    def Scope "_materials"
+    {
+        def Material "MI_Trim_03"
+        {
+            token outputs:surface.connect = </root/_materials/MI_Trim_03/Principled_BSDF.outputs:surface>
+            custom string userProperties:blender:data_name = "MI_Trim_03"
+
+            def Shader "Principled_BSDF"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                float inputs:clearcoat = 0
+                float inputs:clearcoatRoughness = 0.03
+                color3f inputs:diffuseColor.connect = </root/_materials/MI_Trim_03/Image_Texture.outputs:rgb>
+                float inputs:ior = 1.5
+                float inputs:metallic = 0
+                float inputs:opacity = 1
+                float inputs:roughness = 0.5
+                float inputs:specular = 0.5
+                token outputs:surface
+            }
+
+            def Shader "Image_Texture"
+            {
+                uniform token info:id = "UsdUVTexture"
+                token inputs:sourceColorSpace = "sRGB"
+                float2 inputs:st.connect = </root/_materials/MI_Trim_03/uvmap.outputs:result>
+                token inputs:wrapS = "repeat"
+                token inputs:wrapT = "repeat"
+                float3 outputs:rgb
+            }
+
+            def Shader "uvmap"
+            {
+                uniform token info:id = "UsdPrimvarReader_float2"
+                string inputs:varname = "st"
+                float2 outputs:result
+            }
+        }
+    }
+}
+

@@ -1,0 +1,87 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+    doc = "Blender v5.1.2"
+    metersPerUnit = 1
+    upAxis = "Y"
+)
+
+def Xform "root" (
+    customData = {
+        dictionary Blender = {
+            bool generated = 1
+        }
+    }
+)
+{
+    float3 xformOp:rotateXYZ = (-90, -0, 0)
+    uniform token[] xformOpOrder = ["xformOp:rotateXYZ"]
+
+    def Xform "ShortWall_WhitePlate2_Straight"
+    {
+        custom string userProperties:blender:object_name = "ShortWall_WhitePlate2_Straight"
+
+        def Mesh "Plane_242" (
+            active = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            uniform bool doubleSided = 1
+            float3[] extent = [(-1.9999995, -2, -3.1760473e-7), (-1.999999, 1.9999999, 2.0018516)]
+            int[] faceVertexCounts = [4, 4, 4, 4]
+            int[] faceVertexIndices = [2, 0, 1, 3, 3, 1, 5, 4, 6, 4, 5, 8, 7, 6, 8, 9]
+            rel material:binding = </root/_materials/MI_Trim_03>
+            normal3f[] normals = [(0.99999994, -0.0000023579735, 0), (0.99999994, -0.0000023579735, 0), (1, -0.0000010417524, -1.10600285e-14), (1, -0.0000010712691, -1.0812004e-14), (1, -0.0000010712691, -1.0812004e-14), (1, -0.0000010417524, -1.10600285e-14), (1, 1.4800905e-7, -2.1869088e-14), (1, 1.4800905e-7, -2.1869088e-14), (1, -6.580036e-7, -1.0812015e-14), (1, 1.4800905e-7, -2.1869088e-14), (1, 1.4800905e-7, -2.1869088e-14), (1, -6.4209115e-7, -1.1060028e-14), (1, -0.0000013517009, 0), (1, -6.580036e-7, -1.0812015e-14), (1, -6.4209115e-7, -1.1060028e-14), (1, -0.0000013517009, 0)] (
+                interpolation = "faceVarying"
+            )
+            point3f[] points = [(-1.999999, -1.9999999, 0.0018517057), (-1.999999, -1.9494443, 3.1760473e-7), (-1.999999, -2, 2.0018516), (-1.999999, -1.9494439, 1.9999999), (-1.9999993, 3.227015e-7, 2.0018513), (-1.9999993, -3.248509e-9, 0.0018513799), (-1.9999995, 1.9494447, 1.9999996), (-1.9999995, 1.9999999, 2.001851), (-1.9999995, 1.9494443, -3.1760473e-7), (-1.9999995, 1.9999999, 0.001851054)]
+            texCoord2f[] primvars:st = [(0.0011226386, 0.3500253), (0.009456143, 0.3500253), (0.1789419, 0.3500253), (0.0011226386, 0.71285915), (0.009456143, 0.71285915), (0.1789419, 0.71285915), (0.50028324, 0.71285915), (0.50028324, 0.3500253), (0.1789419, 0.71285915), (0.99992806, 0.71285915), (0.9915946, 0.71285915), (0.1789419, 0.3500253), (0.99992806, 0.3500253), (0.9915946, 0.3500253)] (
+                interpolation = "faceVarying"
+            )
+            int[] primvars:st:indices = [3, 0, 1, 4, 5, 2, 7, 6, 8, 6, 7, 11, 10, 9, 12, 13]
+            uniform token subdivisionScheme = "none"
+            custom string userProperties:blender:data_name = "Plane.242"
+        }
+    }
+
+    def Scope "_materials"
+    {
+        def Material "MI_Trim_03"
+        {
+            token outputs:surface.connect = </root/_materials/MI_Trim_03/Principled_BSDF.outputs:surface>
+            custom string userProperties:blender:data_name = "MI_Trim_03"
+
+            def Shader "Principled_BSDF"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                float inputs:clearcoat = 0
+                float inputs:clearcoatRoughness = 0.03
+                color3f inputs:diffuseColor.connect = </root/_materials/MI_Trim_03/Image_Texture.outputs:rgb>
+                float inputs:ior = 1.5
+                float inputs:metallic = 0
+                float inputs:opacity = 1
+                float inputs:roughness = 0.5
+                float inputs:specular = 0.5
+                token outputs:surface
+            }
+
+            def Shader "Image_Texture"
+            {
+                uniform token info:id = "UsdUVTexture"
+                token inputs:sourceColorSpace = "sRGB"
+                float2 inputs:st.connect = </root/_materials/MI_Trim_03/uvmap.outputs:result>
+                token inputs:wrapS = "repeat"
+                token inputs:wrapT = "repeat"
+                float3 outputs:rgb
+            }
+
+            def Shader "uvmap"
+            {
+                uniform token info:id = "UsdPrimvarReader_float2"
+                string inputs:varname = "st"
+                float2 outputs:result
+            }
+        }
+    }
+}
+

@@ -1,0 +1,87 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+    doc = "Blender v5.1.2"
+    metersPerUnit = 1
+    upAxis = "Y"
+)
+
+def Xform "root" (
+    customData = {
+        dictionary Blender = {
+            bool generated = 1
+        }
+    }
+)
+{
+    float3 xformOp:rotateXYZ = (-90, -0, 0)
+    uniform token[] xformOpOrder = ["xformOp:rotateXYZ"]
+
+    def Xform "Decal_9"
+    {
+        custom string userProperties:blender:object_name = "Decal_9"
+
+        def Mesh "Plane_023" (
+            active = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            uniform bool doubleSided = 1
+            float3[] extent = [(-0.38403517, -0.636266, 0), (0.38403472, 0.636266, 0)]
+            int[] faceVertexCounts = [4]
+            int[] faceVertexIndices = [1, 0, 2, 3]
+            rel material:binding = </root/_materials/M_Decal_White>
+            normal3f[] normals = [(0, 0, 0.99999994), (0, 0, 0.99999994), (0, 0, 0.99999994), (0, 0, 0.99999994)] (
+                interpolation = "faceVarying"
+            )
+            point3f[] points = [(0.38403472, -0.636266, 0), (-0.38403472, -0.636266, 0), (0.38403428, 0.636266, 0), (-0.38403517, 0.636266, 0)]
+            texCoord2f[] primvars:st = [(0.9749493, 0.89998484), (0.92527986, 0.89998484), (0.97494924, 0.9822769), (0.9252798, 0.9822769)] (
+                interpolation = "faceVarying"
+            )
+            int[] primvars:st:indices = [1, 0, 2, 3]
+            uniform token subdivisionScheme = "none"
+            custom string userProperties:blender:data_name = "Plane.023"
+        }
+    }
+
+    def Scope "_materials"
+    {
+        def Material "M_Decal_White"
+        {
+            token outputs:surface.connect = </root/_materials/M_Decal_White/Principled_BSDF.outputs:surface>
+            custom string userProperties:blender:data_name = "M_Decal_White"
+
+            def Shader "Principled_BSDF"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                float inputs:clearcoat = 0
+                float inputs:clearcoatRoughness = 0.03
+                color3f inputs:diffuseColor.connect = </root/_materials/M_Decal_White/Image_Texture.outputs:rgb>
+                float inputs:ior = 1.5
+                float inputs:metallic = 0
+                float inputs:opacity = 1
+                float inputs:roughness = 0.5
+                float inputs:specular = 0.5
+                token outputs:surface
+            }
+
+            def Shader "Image_Texture"
+            {
+                uniform token info:id = "UsdUVTexture"
+                token inputs:sourceColorSpace = "sRGB"
+                float2 inputs:st.connect = </root/_materials/M_Decal_White/uvmap.outputs:result>
+                token inputs:wrapS = "repeat"
+                token inputs:wrapT = "repeat"
+                float3 outputs:rgb
+            }
+
+            def Shader "uvmap"
+            {
+                uniform token info:id = "UsdPrimvarReader_float2"
+                string inputs:varname = "st"
+                float2 outputs:result
+            }
+        }
+    }
+}
+

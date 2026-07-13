@@ -1,0 +1,87 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+    doc = "Blender v5.1.2"
+    metersPerUnit = 1
+    upAxis = "Y"
+)
+
+def Xform "root" (
+    customData = {
+        dictionary Blender = {
+            bool generated = 1
+        }
+    }
+)
+{
+    float3 xformOp:rotateXYZ = (-90, -0, 0)
+    uniform token[] xformOpOrder = ["xformOp:rotateXYZ"]
+
+    def Xform "BottomSimple_Straight"
+    {
+        custom string userProperties:blender:object_name = "BottomSimple_Straight"
+
+        def Mesh "Plane_159" (
+            active = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            uniform bool doubleSided = 1
+            float3[] extent = [(-2.0000002, -2.0000002, 7.7686616e-14), (-1.4000001, 2.0000002, 0.020000476)]
+            int[] faceVertexCounts = [4, 4, 4, 4, 4, 4, 4, 4]
+            int[] faceVertexIndices = [0, 2, 7, 6, 4, 6, 7, 5, 9, 4, 5, 8, 3, 1, 9, 8, 10, 13, 7, 2, 12, 5, 7, 13, 14, 8, 5, 12, 3, 8, 14, 11]
+            rel material:binding = </root/_materials/MI_Trim_03_Dark>
+            normal3f[] normals = [(1, -1.6763407e-7, 0), (1, -1.3967849e-8, 0), (0.7071069, 4.3465334e-8, 0.7071067), (0.7071067, 5.0052222e-8, 0.7071069), (0, 2.3841844e-7, 1), (0.7071067, 5.0052222e-8, 0.7071069), (0.7071069, 4.3465334e-8, 0.7071067), (0, 7.5437086e-8, 1), (0, 2.3841832e-7, 1), (0, 2.3841844e-7, 1), (0, 7.5437086e-8, 1), (0, 7.5437036e-8, 1), (-1, 0, 0), (-1, -9.313225e-8, 0), (-1, -9.313225e-8, 0), (-1, 0, 0), (1, 1.3969837e-7, 0), (0.70710665, 3.687849e-8, 0.7071068), (0.7071069, 4.3465334e-8, 0.7071067), (1, -1.3967849e-8, 0), (0, -8.754427e-8, 1), (0, 7.5437086e-8, 1), (0.7071069, 4.3465334e-8, 0.7071067), (0.70710665, 3.687849e-8, 0.7071068), (0, -8.754426e-8, 1), (0, 7.5437036e-8, 1), (0, 7.5437086e-8, 1), (0, -8.754427e-8, 1), (-1, 0, 0), (-1, 0, 0), (-1, 9.313225e-8, 0), (-1, 9.313225e-8, 0)] (
+                interpolation = "faceVarying"
+            )
+            point3f[] points = [(-1.4000005, -2.0000002, 4.7683716e-7), (-2, -2.0000002, 4.7683716e-7), (-1.4000001, 5.8651762e-21, 7.7686616e-14), (-2.0000002, 5.8651762e-21, 7.7686616e-14), (-1.8000003, -2.0000002, 0.020000476), (-1.8, 1.5099579e-9, 0.02), (-1.4000005, -2.0000002, 0.020000476), (-1.4000001, 1.5099579e-9, 0.02), (-2.0000002, 1.5099579e-9, 0.02), (-2, -2.0000002, 0.020000476), (-1.4000005, 2.0000002, 1.7484552e-7), (-2, 2.0000002, 1.7484552e-7), (-1.8000003, 2.0000002, 0.020000175), (-1.4000005, 2.0000002, 0.020000175), (-2, 2.0000002, 0.020000175)]
+            texCoord2f[] primvars:st = [(0.13626614, 0.3575299), (0.32746783, 0.026097555), (0.50028914, 0.3575299), (0.53450906, 0.026097596), (0.13626614, 0.43397465), (0.76850855, 0.2685121), (0.50028914, 0.43397462), (0.5063846, 0.26851207), (0.13626614, 0.3611701), (0.50028914, 0.3611701), (0.5063846, 0.3086867), (0.53450906, 0.026097596), (0.76850855, 0.30868664), (0.32746783, 0.026097555), (0.13626614, 0.3575299), (0.32746783, 0.026097555), (0.13626614, 0.43397465), (0.76850855, 0.2685121), (0.13626614, 0.3611701), (0.76850855, 0.30868664), (0.32746783, 0.026097555)] (
+                interpolation = "faceVarying"
+            )
+            int[] primvars:st:indices = [0, 2, 9, 8, 4, 8, 9, 6, 12, 5, 7, 10, 3, 1, 13, 11, 14, 18, 9, 2, 16, 6, 9, 18, 19, 10, 7, 17, 3, 11, 20, 15]
+            uniform token subdivisionScheme = "none"
+            custom string userProperties:blender:data_name = "Plane.159"
+        }
+    }
+
+    def Scope "_materials"
+    {
+        def Material "MI_Trim_03_Dark"
+        {
+            token outputs:surface.connect = </root/_materials/MI_Trim_03_Dark/Principled_BSDF.outputs:surface>
+            custom string userProperties:blender:data_name = "MI_Trim_03_Dark"
+
+            def Shader "Principled_BSDF"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                float inputs:clearcoat = 0
+                float inputs:clearcoatRoughness = 0.03
+                color3f inputs:diffuseColor.connect = </root/_materials/MI_Trim_03_Dark/Image_Texture.outputs:rgb>
+                float inputs:ior = 1.5
+                float inputs:metallic = 0
+                float inputs:opacity = 1
+                float inputs:roughness = 0.5
+                float inputs:specular = 0.5
+                token outputs:surface
+            }
+
+            def Shader "Image_Texture"
+            {
+                uniform token info:id = "UsdUVTexture"
+                token inputs:sourceColorSpace = "sRGB"
+                float2 inputs:st.connect = </root/_materials/MI_Trim_03_Dark/uvmap.outputs:result>
+                token inputs:wrapS = "repeat"
+                token inputs:wrapT = "repeat"
+                float3 outputs:rgb
+            }
+
+            def Shader "uvmap"
+            {
+                uniform token info:id = "UsdPrimvarReader_float2"
+                string inputs:varname = "st"
+                float2 outputs:result
+            }
+        }
+    }
+}
+

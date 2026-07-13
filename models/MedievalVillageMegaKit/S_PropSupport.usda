@@ -1,0 +1,110 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+    doc = "Blender v5.1.2"
+    metersPerUnit = 1
+    upAxis = "Y"
+)
+
+def Xform "root" (
+    customData = {
+        dictionary Blender = {
+            bool generated = 1
+        }
+    }
+)
+{
+    float3 xformOp:rotateXYZ = (-90, -0, 0)
+    uniform token[] xformOpOrder = ["xformOp:rotateXYZ"]
+
+    def Xform "Prop_Support"
+    {
+        custom string userProperties:blender:object_name = "Prop_Support"
+
+        def Mesh "Cube_124" (
+            active = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            uniform bool doubleSided = 1
+            float3[] extent = [(-0.09930183, -1.9181501, 1.2113893), (0.09930171, 0.118122995, 2.9200263)]
+            int[] faceVertexCounts = [4, 4, 4, 4, 4, 4, 4, 4]
+            int[] faceVertexIndices = [1, 8, 10, 0, 3, 0, 10, 11, 2, 3, 11, 9, 6, 14, 15, 5, 9, 8, 1, 2, 4, 12, 13, 7, 7, 13, 14, 6, 12, 4, 5, 15]
+            rel material:binding = </root/_materials/MI_WoodTrim>
+            normal3f[] normals = [(-9.032421e-7, -0.6427877, -0.7660444), (-9.032421e-7, -0.6427877, -0.7660444), (-9.032421e-7, -0.6427877, -0.7660444), (-9.032421e-7, -0.6427877, -0.7660444), (1, 4.844069e-7, -1.4548998e-7), (1, 4.844069e-7, -1.4548998e-7), (1, 4.844069e-7, -1.4548998e-7), (1, 4.844069e-7, -1.4548998e-7), (-2.7687003e-7, 0.6427878, 0.7660443), (-2.7687003e-7, 0.6427878, 0.7660443), (-2.7687003e-7, 0.6427878, 0.7660443), (-2.7687003e-7, 0.6427878, 0.7660443), (0, 0.64278764, -0.76604444), (0, 0.64278764, -0.76604444), (0, 0.64278764, -0.76604444), (0, 0.64278764, -0.76604444), (-1, -4.7183832e-7, 3.831635e-7), (-1, -4.7183832e-7, 3.831635e-7), (-1, -4.7183832e-7, 3.831635e-7), (-1, -4.7183832e-7, 3.831635e-7), (0, -0.64278764, 0.76604444), (0, -0.64278764, 0.76604444), (0, -0.64278764, 0.76604444), (0, -0.64278764, 0.76604444), (1, -5.13546e-7, -1.5364317e-7), (1, -5.13546e-7, -1.5364317e-7), (1, -5.13546e-7, -1.5364317e-7), (1, -5.13546e-7, -1.5364317e-7), (-1, 4.3746462e-7, 3.9066535e-7), (-1, 4.3746462e-7, 3.9066535e-7), (-1, 4.3746462e-7, 3.9066535e-7), (-1, 4.3746462e-7, 3.9066535e-7)] (
+                interpolation = "faceVarying"
+            )
+            point3f[] points = [(0.09930171, -1.9181501, 2.9200258), (-0.09930022, -1.9181501, 2.9200258), (-0.099300385, -1.5658615, 2.920026), (0.09930153, -1.5658612, 2.920026), (-0.090299256, -0.36283362, 2.9200263), (-0.09029911, -0.0424788, 2.9200263), (0.09030004, -0.04247892, 2.9200263), (0.090299875, -0.36283362, 2.9200263), (-0.09930183, 0.118122876, 1.2113893), (-0.09930172, 0.118122995, 1.5069948), (0.09930044, 0.1181227, 1.2113895), (0.09930048, 0.11812276, 1.506995), (-0.09029976, -1.008558, 2.378199), (0.09029947, -1.008558, 2.378199), (0.090299524, -0.85398936, 2.239088), (-0.09029975, -0.8539896, 2.2390878)]
+            texCoord2f[] primvars:st = [(1, 0.68669534), (0, 0.44807464), (1, 0.5732629), (0, 0.44807464), (0.904803, 0.6866954), (0.09519702, 0.5581202), (0.09519708, 0.5581202), (0.9048029, 0.57326293), (0.75229824, 0.68669546), (0.24770175, 0.5581202), (0.8474956, 0.57326293), (0.15250437, 0.44807464), (0.84749556, 0.6866954), (0.15250449, 0.44807464), (0.75229824, 0.57326293), (0.24770178, 0.5581202), (0.062322505, 0.57326305), (0.9376775, 0.44807464), (0.12934978, 0.6866956), (0.8706502, 0.5581202), (0.062322557, 0.68669564), (0.93767744, 0.44807464), (0.8706501, 0.5581202), (0.12934986, 0.57326305), (0.4253097, 0.6866955), (0.5746903, 0.5581202), (0.42530966, 0.57326305), (0.57469034, 0.55812025), (0.4365545, 0.6866955), (0.5634455, 0.44807464), (0.43655437, 0.573263), (0.5634456, 0.44807464)] (
+                interpolation = "faceVarying"
+            )
+            int[] primvars:st:indices = [2, 16, 20, 0, 6, 1, 21, 22, 4, 7, 23, 18, 12, 28, 30, 10, 19, 17, 3, 5, 8, 24, 26, 14, 15, 27, 29, 13, 25, 9, 11, 31]
+            uniform token subdivisionScheme = "none"
+            custom string userProperties:blender:data_name = "Cube.124"
+        }
+    }
+
+    def Scope "_materials"
+    {
+        def Material "MI_WoodTrim"
+        {
+            token outputs:surface.connect = </root/_materials/MI_WoodTrim/Principled_BSDF.outputs:surface>
+            custom string userProperties:blender:data_name = "MI_WoodTrim"
+
+            def Shader "Principled_BSDF"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                float inputs:clearcoat = 0
+                float inputs:clearcoatRoughness = 0.03
+                color3f inputs:diffuseColor.connect = </root/_materials/MI_WoodTrim/Image_Texture.outputs:rgb>
+                float inputs:ior = 1.5
+                float inputs:metallic = 0
+                normal3f inputs:normal.connect = </root/_materials/MI_WoodTrim/Image_Texture_002.outputs:rgb>
+                float inputs:opacity = 1
+                float inputs:roughness.connect = </root/_materials/MI_WoodTrim/Image_Texture_001.outputs:r>
+                float inputs:specular = 0.5
+                token outputs:surface
+            }
+
+            def Shader "Image_Texture"
+            {
+                uniform token info:id = "UsdUVTexture"
+                token inputs:sourceColorSpace = "sRGB"
+                float2 inputs:st.connect = </root/_materials/MI_WoodTrim/uvmap.outputs:result>
+                token inputs:wrapS = "repeat"
+                token inputs:wrapT = "repeat"
+                float3 outputs:rgb
+            }
+
+            def Shader "uvmap"
+            {
+                uniform token info:id = "UsdPrimvarReader_float2"
+                string inputs:varname = "st"
+                float2 outputs:result
+            }
+
+            def Shader "Image_Texture_001"
+            {
+                uniform token info:id = "UsdUVTexture"
+                token inputs:sourceColorSpace = "raw"
+                float2 inputs:st.connect = </root/_materials/MI_WoodTrim/uvmap.outputs:result>
+                token inputs:wrapS = "repeat"
+                token inputs:wrapT = "repeat"
+                float outputs:r
+            }
+
+            def Shader "Image_Texture_002"
+            {
+                uniform token info:id = "UsdUVTexture"
+                float4 inputs:bias = (-1, -1, -1, -1)
+                float4 inputs:scale = (2, 2, 2, 2)
+                token inputs:sourceColorSpace = "raw"
+                float2 inputs:st.connect = </root/_materials/MI_WoodTrim/uvmap.outputs:result>
+                token inputs:wrapS = "repeat"
+                token inputs:wrapT = "repeat"
+                float3 outputs:rgb
+            }
+        }
+    }
+}
+

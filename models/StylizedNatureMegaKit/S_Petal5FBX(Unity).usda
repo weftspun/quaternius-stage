@@ -1,0 +1,98 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+    doc = "Blender v5.1.2"
+    metersPerUnit = 1
+    upAxis = "Y"
+)
+
+def Xform "root" (
+    customData = {
+        dictionary Blender = {
+            bool generated = 1
+        }
+    }
+)
+{
+    float3 xformOp:rotateXYZ = (-90, -0, 0)
+    uniform token[] xformOpOrder = ["xformOp:rotateXYZ"]
+
+    def Xform "Petal_5"
+    {
+        custom string userProperties:blender:object_name = "Petal_5"
+
+        def Mesh "Plane_029" (
+            active = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            uniform bool doubleSided = 1
+            float3[] extent = [(-0.40094662, -0.3756616, 0.0010437479), (0.433016, 0.41955188, 0.28981557)]
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [11, 14, 0, 7, 9, 0, 2, 3, 0, 13, 2, 0, 12, 11, 0, 3, 1, 0, 14, 15, 0, 9, 8, 0, 4, 7, 0, 15, 13, 0, 8, 10, 0, 5, 6, 0, 10, 12, 0, 6, 4, 0, 1, 5, 0]
+            rel material:binding = </root/_materials/Flowers>
+            normal3f[] normals = [(-0.49006408, 0.21666144, 0.8443311), (-0.3139154, -0.2763454, 0.90834486), (0.08245597, -0.0029524588, 0.9965904), (0.03787662, 0.5568182, 0.8297704), (-0.03712013, 0.6467305, 0.76181483), (0.08245597, -0.0029524588, 0.9965904), (0.31006578, -0.44783854, 0.8386298), (0.53619754, -0.46418342, 0.7050007), (0.08245597, -0.0029524588, 0.9965904), (-0.18467936, -0.5165178, 0.83612376), (0.31006578, -0.44783854, 0.8386298), (0.08245597, -0.0029524588, 0.9965904), (-0.6070717, 0.153825, 0.7796165), (-0.49006408, 0.21666144, 0.8443311), (0.08245597, -0.0029524588, 0.9965904), (0.53619754, -0.46418342, 0.7050007), (0.49282604, -0.32334432, 0.8078187), (0.08245597, -0.0029524588, 0.9965904), (-0.3139154, -0.2763454, 0.90834486), (-0.26365396, -0.58731604, 0.76521015), (0.08245597, -0.0029524588, 0.9965904), (-0.03712013, 0.6467305, 0.76181483), (-0.1991939, 0.38276696, 0.90211487), (0.08245597, -0.0029524588, 0.9965904), (0.450597, 0.33431944, 0.8277638), (0.03787662, 0.5568182, 0.8297704), (0.08245597, -0.0029524588, 0.9965904), (-0.26365396, -0.58731604, 0.76521015), (-0.18467936, -0.5165178, 0.83612376), (0.08245597, -0.0029524588, 0.9965904), (-0.1991939, 0.38276696, 0.90211487), (-0.5304207, 0.00956332, 0.8476806), (0.08245597, -0.0029524588, 0.9965904), (0.5821633, 0.12606283, 0.80323976), (0.66442966, 0.29204735, 0.68792564), (0.08245597, -0.0029524588, 0.9965904), (-0.5304207, 0.00956332, 0.8476806), (-0.6070717, 0.153825, 0.7796165), (0.08245597, -0.0029524588, 0.9965904), (0.66442966, 0.29204735, 0.68792564), (0.450597, 0.33431944, 0.8277638), (0.08245597, -0.0029524588, 0.9965904), (0.49282604, -0.32334432, 0.8078187), (0.5821633, 0.12606283, 0.80323976), (0.08245597, -0.0029524588, 0.9965904)] (
+                interpolation = "faceVarying"
+            )
+            point3f[] points = [(0.0032504436, -0.0014729291, 0.0010437479), (-0.3790515, 0.13556413, 0.28912634), (-0.10692877, 0.41955188, 0.26661256), (-0.17425604, 0.20242877, 0.27030072), (-0.22472337, -0.3551949, 0.26800448), (-0.40094662, 0.02514582, 0.28981557), (-0.22704142, -0.11417609, 0.27131623), (-0.121827774, -0.3756616, 0.25785285), (0.32545635, -0.33884564, 0.21533646), (0.0477775, -0.28361312, 0.24273175), (0.3402355, -0.2643133, 0.21487139), (0.41237208, 0.09947548, 0.2126008), (0.27670375, -0.05082293, 0.2237135), (0.044681787, 0.38939536, 0.25165486), (0.433016, 0.20358409, 0.21195108), (0.15974757, 0.23785411, 0.23865388)]
+            texCoord2f[] primvars:st = [(0.52195996, 0.4676548), (0.393025, 0.3207168), (0.32093343, 0.48397875), (0.40035772, 0.41840866), (0.62548757, 0.3015645), (0.43554848, 0.29256862), (0.5240128, 0.341907), (0.6518432, 0.34138), (0.7136611, 0.5360203), (0.6425365, 0.42857227), (0.6849577, 0.5550203), (0.5448579, 0.6477586), (0.5844542, 0.5648695), (0.35976687, 0.54264444), (0.50476426, 0.6742984), (0.44319242, 0.56511384)] (
+                interpolation = "faceVarying"
+            )
+            int[] primvars:st:indices = [11, 14, 0, 7, 9, 0, 2, 3, 0, 13, 2, 0, 12, 11, 0, 3, 1, 0, 14, 15, 0, 9, 8, 0, 4, 7, 0, 15, 13, 0, 8, 10, 0, 5, 6, 0, 10, 12, 0, 6, 4, 0, 1, 5, 0]
+            uniform token subdivisionScheme = "none"
+            custom string userProperties:blender:data_name = "Plane.029"
+        }
+    }
+
+    def Scope "_materials"
+    {
+        def Material "Flowers"
+        {
+            token outputs:surface.connect = </root/_materials/Flowers/Principled_BSDF.outputs:surface>
+            custom string userProperties:blender:data_name = "Flowers"
+
+            def Shader "Principled_BSDF"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                float inputs:clearcoat = 0
+                float inputs:clearcoatRoughness = 0.03
+                color3f inputs:diffuseColor.connect = </root/_materials/Flowers/Image_Texture.outputs:rgb>
+                float inputs:ior = 1.5
+                float inputs:metallic = 0
+                float inputs:opacity = 1
+                float inputs:opacity.connect = </root/_materials/Flowers/Image_Texture_001.outputs:r>
+                float inputs:roughness = 1
+                float inputs:specular = 0.5
+                token outputs:surface
+            }
+
+            def Shader "Image_Texture"
+            {
+                uniform token info:id = "UsdUVTexture"
+                token inputs:sourceColorSpace = "raw"
+                float2 inputs:st.connect = </root/_materials/Flowers/uvmap.outputs:result>
+                token inputs:wrapS = "repeat"
+                token inputs:wrapT = "repeat"
+                float3 outputs:rgb
+            }
+
+            def Shader "uvmap"
+            {
+                uniform token info:id = "UsdPrimvarReader_float2"
+                string inputs:varname = "st"
+                float2 outputs:result
+            }
+
+            def Shader "Image_Texture_001"
+            {
+                uniform token info:id = "UsdUVTexture"
+                token inputs:sourceColorSpace = "raw"
+                float2 inputs:st.connect = </root/_materials/Flowers/uvmap.outputs:result>
+                token inputs:wrapS = "repeat"
+                token inputs:wrapT = "repeat"
+                float outputs:r
+            }
+        }
+    }
+}
+

@@ -1,0 +1,66 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+    doc = "Blender v5.1.2"
+    metersPerUnit = 1
+    upAxis = "Y"
+)
+
+def Xform "root" (
+    customData = {
+        dictionary Blender = {
+            bool generated = 1
+        }
+    }
+)
+{
+    float3 xformOp:rotateXYZ = (-90, -0, 0)
+    uniform token[] xformOpOrder = ["xformOp:rotateXYZ"]
+
+    def Xform "Debris_Papers_1"
+    {
+        custom string userProperties:blender:object_name = "Debris_Papers_1"
+
+        def Mesh "Plane_003" (
+            active = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            uniform bool doubleSided = 1
+            float3[] extent = [(-0.41312575, -0.33772126, 0.001355512), (0.5398366, 0.5311716, 0.0061002886)]
+            int[] faceVertexCounts = [4, 4, 4, 4, 4, 4]
+            int[] faceVertexIndices = [0, 1, 3, 2, 4, 5, 7, 6, 8, 9, 11, 10, 12, 13, 15, 14, 16, 17, 19, 18, 20, 21, 23, 22]
+            rel material:binding = </root/_materials/White>
+            normal3f[] normals = [(-4.9310454e-8, 1.5556729e-7, 1), (-4.9310454e-8, 1.5556729e-7, 1), (-4.9310454e-8, 1.5556729e-7, 1), (-4.9310454e-8, 1.5556729e-7, 1), (-4.939924e-8, 1.5674985e-7, 1), (-4.939924e-8, 1.5674985e-7, 1), (-4.939924e-8, 1.5674985e-7, 1), (-4.939924e-8, 1.5674985e-7, 1), (-4.5259455e-8, 1.5533703e-7, 1), (-4.5259455e-8, 1.5533703e-7, 1), (-4.5259455e-8, 1.5533703e-7, 1), (-4.5259455e-8, 1.5533703e-7, 1), (-4.794633e-8, 1.5581773e-7, 1), (-4.794633e-8, 1.5581773e-7, 1), (-4.794633e-8, 1.5581773e-7, 1), (-4.794633e-8, 1.5581773e-7, 1), (-4.889139e-8, 1.5508114e-7, 1), (-4.889139e-8, 1.5508114e-7, 1), (-4.889139e-8, 1.5508114e-7, 1), (-4.889139e-8, 1.5508114e-7, 1), (-4.917076e-8, 1.55337e-7, 0.99999994), (-4.917076e-8, 1.55337e-7, 0.99999994), (-4.917076e-8, 1.55337e-7, 0.99999994), (-4.917076e-8, 1.55337e-7, 0.99999994)] (
+                interpolation = "faceVarying"
+            )
+            point3f[] points = [(-0.07420571, -0.14330667, 0.0013556227), (0.14330667, -0.07420571, 0.0013556227), (-0.14330667, 0.07420571, 0.0013555854), (0.07420571, 0.14330667, 0.0013555854), (0.3223242, 0.17163227, 0.0040668016), (0.5398366, 0.24073324, 0.0040668016), (0.26917493, 0.33893266, 0.0040667728), (0.48668733, 0.4080336, 0.0040667728), (-0.29783332, -0.18068877, 0.006100232), (-0.082965076, -0.25761873, 0.006100254), (-0.22090338, 0.034179475, 0.006100202), (-0.0060351253, -0.04275047, 0.006100225), (0.25060135, 0.18032947, 0.0029671139), (0.3906811, 0.00015109824, 0.0029671488), (0.3891861, 0.28807226, 0.0029671039), (0.5292659, 0.10789389, 0.0029671388), (-0.3440248, 0.24455827, 0.0013555491), (-0.12651242, 0.31365922, 0.0013555491), (-0.41312575, 0.46207064, 0.001355512), (-0.19561338, 0.5311716, 0.001355512), (0.14483869, -0.26079133, 0.006100266), (0.35970694, -0.33772126, 0.0061002886), (0.22176865, -0.045923073, 0.0061002364), (0.43663687, -0.12285302, 0.006100259)]
+            uniform token subdivisionScheme = "none"
+            custom string userProperties:blender:data_name = "Plane.003"
+        }
+    }
+
+    def Scope "_materials"
+    {
+        def Material "White"
+        {
+            token outputs:surface.connect = </root/_materials/White/Principled_BSDF.outputs:surface>
+            custom string userProperties:blender:data_name = "White"
+
+            def Shader "Principled_BSDF"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                float inputs:clearcoat = 0
+                float inputs:clearcoatRoughness = 0.03
+                color3f inputs:diffuseColor = (0.6421434, 0.6738418, 0.5752184)
+                float inputs:ior = 1.5
+                float inputs:metallic = 0
+                float inputs:opacity = 1
+                float inputs:roughness = 0.6900348
+                float inputs:specular = 0.5
+                token outputs:surface
+            }
+        }
+    }
+}
+
