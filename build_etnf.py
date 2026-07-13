@@ -38,6 +38,14 @@ def build(models_dir: str, manifest_file: str, out: str) -> pd.DataFrame:
         if len(parts) == 2 and parts[1]:
             folder_by_pack[parts[0]] = f"https://drive.google.com/drive/folders/{parts[1]}"
 
+    # itch.io-only mega-kits: source is the itch page (pack, slug, game_id).
+    itch = Path(manifest_file).parent / "itch_manifest.tsv"
+    if itch.exists():
+        for line in itch.read_text().splitlines():
+            parts = line.rstrip("\n").split("\t")
+            if len(parts) == 3 and parts[1]:
+                folder_by_pack.setdefault(parts[0], f"https://quaternius.itch.io/{parts[1]}")
+
     rows = []
     for usd in sorted(Path(models_dir).glob("*/*.usda")):
         pack = usd.parent.name

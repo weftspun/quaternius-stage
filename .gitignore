@@ -5,3 +5,4 @@ _batch.log
 # pixi environments
 .pixi/*
 !.pixi/config.toml
+_itch/

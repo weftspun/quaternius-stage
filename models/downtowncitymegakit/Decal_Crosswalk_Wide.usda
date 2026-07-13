@@ -1,0 +1,98 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+    doc = "Blender v5.1.2"
+    metersPerUnit = 1
+    upAxis = "Y"
+)
+
+def Xform "root" (
+    customData = {
+        dictionary Blender = {
+            bool generated = 1
+        }
+    }
+)
+{
+    float3 xformOp:rotateXYZ = (-90, -0, 0)
+    uniform token[] xformOpOrder = ["xformOp:rotateXYZ"]
+
+    def Xform "Decal_Crosswalk_Wide"
+    {
+        custom string userProperties:blender:object_name = "Decal_Crosswalk_Wide"
+
+        def Mesh "Plane_003" (
+            active = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            uniform bool doubleSided = 1
+            float3[] extent = [(-2.3331325, -5.7078757, -0.14800045), (2.3331323, 5.7078757, -0.14799958)]
+            int[] faceVertexCounts = [4, 4]
+            int[] faceVertexIndices = [0, 2, 4, 1, 2, 3, 5, 4]
+            rel material:binding = </root/_materials/MI_StreetDecals>
+            normal3f[] normals = [(0, 7.570832e-8, 1), (0, 7.570832e-8, 1), (0, 7.570832e-8, 1), (0, 7.570832e-8, 1), (0, 7.570832e-8, 1), (0, 7.570832e-8, 1), (0, 7.570832e-8, 1), (0, 7.570832e-8, 1)] (
+                interpolation = "faceVarying"
+            )
+            point3f[] points = [(-2.3331282, 5.7078757, -0.14800045), (2.3331323, 5.7078757, -0.14800045), (-2.3331282, -1.117369e-8, -0.14800002), (-2.3331325, -5.7078757, -0.14799958), (2.3331323, -1.117369e-8, -0.14800002), (2.3331282, -5.7078757, -0.14799958)]
+            texCoord2f[] primvars:st = [(0, 0.5458324), (0, 0.85383797), (0.625, 0.5458307), (0, 0.5458324), (0.625, 0.5458307), (0.625, 0.8538368), (0, 0.85383797), (0.625, 0.8538368)] (
+                interpolation = "faceVarying"
+            )
+            int[] primvars:st:indices = [0, 2, 5, 1, 3, 4, 7, 6]
+            uniform token subdivisionScheme = "none"
+            custom string userProperties:blender:data_name = "Plane.003"
+        }
+    }
+
+    def Scope "_materials"
+    {
+        def Material "MI_StreetDecals"
+        {
+            token outputs:surface.connect = </root/_materials/MI_StreetDecals/Principled_BSDF.outputs:surface>
+            custom string userProperties:blender:data_name = "MI_StreetDecals"
+
+            def Shader "Principled_BSDF"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                float inputs:clearcoat = 0
+                float inputs:clearcoatRoughness = 0.03
+                color3f inputs:diffuseColor.connect = </root/_materials/MI_StreetDecals/Image_Texture.outputs:rgb>
+                float inputs:ior = 1.5
+                float inputs:metallic = 0
+                float inputs:opacity = 1
+                float inputs:opacity.connect = </root/_materials/MI_StreetDecals/Image_Texture_001.outputs:r>
+                float inputs:roughness = 0.5
+                float inputs:specular = 0.5
+                token outputs:surface
+            }
+
+            def Shader "Image_Texture"
+            {
+                uniform token info:id = "UsdUVTexture"
+                token inputs:sourceColorSpace = "raw"
+                float2 inputs:st.connect = </root/_materials/MI_StreetDecals/uvmap.outputs:result>
+                token inputs:wrapS = "repeat"
+                token inputs:wrapT = "repeat"
+                float3 outputs:rgb
+            }
+
+            def Shader "uvmap"
+            {
+                uniform token info:id = "UsdPrimvarReader_float2"
+                string inputs:varname = "st"
+                float2 outputs:result
+            }
+
+            def Shader "Image_Texture_001"
+            {
+                uniform token info:id = "UsdUVTexture"
+                token inputs:sourceColorSpace = "raw"
+                float2 inputs:st.connect = </root/_materials/MI_StreetDecals/uvmap.outputs:result>
+                token inputs:wrapS = "repeat"
+                token inputs:wrapT = "repeat"
+                float outputs:r
+            }
+        }
+    }
+}
+

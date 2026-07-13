@@ -1,0 +1,70 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+    doc = "Blender v5.1.2"
+    metersPerUnit = 1
+    upAxis = "Y"
+)
+
+def Xform "root" (
+    customData = {
+        dictionary Blender = {
+            bool generated = 1
+        }
+    }
+)
+{
+    float3 xformOp:rotateXYZ = (-90, -0, 0)
+    uniform token[] xformOpOrder = ["xformOp:rotateXYZ"]
+
+    def Xform "Decal_Line_Bend1_L"
+    {
+        custom string userProperties:blender:object_name = "Decal_Line_Bend1_L"
+
+        def Mesh "Plane_253" (
+            active = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            uniform bool doubleSided = 1
+            float3[] extent = [(-2.072, -2, 0), (0.072000004, 2, 0)]
+            int[] faceVertexCounts = [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4]
+            int[] faceVertexIndices = [14, 10, 4, 20, 0, 9, 15, 1, 14, 16, 13, 10, 16, 17, 12, 13, 17, 18, 11, 12, 18, 15, 9, 11, 19, 21, 8, 5, 21, 22, 7, 8, 22, 23, 6, 7, 23, 20, 4, 6, 5, 2, 3, 19]
+            rel material:binding = </root/_materials/MI_Decal_Line>
+            normal3f[] normals = [(0, 0, 1), (0, 0, 1), (0, 0, 1), (0, 0, 1), (0, 0, 1), (0, 0, 1), (0, 0, 1), (0, 0, 1), (0, 0, 1), (0, 0, 1), (0, 0, 1), (0, 0, 1), (0, 0, 1), (0, 0, 1), (0, 0, 1), (0, 0, 1), (0, 0, 1), (0, 0, 1), (0, 0, 1), (0, 0, 1), (0, 0, 1), (0, 0, 1), (0, 0, 1), (0, 0, 1), (0, 0, 1), (0, 0, 1), (0, 0, 1), (0, 0, 1), (0, 0, 1), (0, 0, 1), (0, 0, 1), (0, 0, 1), (0, 0, 1), (0, 0, 1), (0, 0, 1), (0, 0, 1), (0, 0, 1), (0, 0, 1), (0, 0, 1), (0, 0, 1), (0, 0, 1), (0, 0, 1), (0, 0, 1), (0, 0, 1)] (
+                interpolation = "faceVarying"
+            )
+            point3f[] points = [(0.072000004, -2, 0), (-0.072000004, -2, 0), (-1.9280001, 2, 0), (-2.072, 2, 0), (-1.7851844, 0.85718423, 0), (-1.9280001, 1.2336656, 0), (-1.8398374, 0.92962426, 0), (-1.8861703, 1.0266093, 0), (-1.9171288, 1.1333745, 0), (0.072000004, -1.2336655, 0), (-0.07081581, -0.8571842, 0), (0.061128788, -1.1333743, 0), (0.030170217, -1.0266093, 0), (-0.016162563, -0.92962414, 0), (-0.2148158, -0.9487872, 0), (-0.07199999, -1.3252686, 0), (-0.16016257, -1.0212274, 0), (-0.113829784, -1.1182125, 0), (-0.08287121, -1.2249776, 0), (-2.072, 1.1420624, 0), (-1.9291843, 0.7655812, 0), (-2.0611289, 1.0417713, 0), (-2.0301704, 0.93500614, 0), (-1.9838376, 0.8380211, 0)]
+            texCoord2f[] primvars:st = [(0.32211706, 0.124494284), (0.35220152, 0.124494284), (0.7399575, 0.9601752), (0.77004194, 0.9601752), (0.7101204, 0.72141784), (0.7399575, 0.80007243), (0.72153854, 0.736552), (0.7399575, 0.7512549), (0.7376863, 0.7791195), (0.32211706, 0.28459707), (0.3519542, 0.36325163), (0.32438827, 0.3055499), (0.33085614, 0.3278553), (0.34053597, 0.3481174), (0.38203862, 0.3441139), (0.35220152, 0.2654593), (0.37062043, 0.32897967), (0.35220152, 0.31427678), (0.35447276, 0.28641215), (0.77004194, 0.7809347), (0.7402049, 0.70228016), (0.7677707, 0.7599819), (0.76130295, 0.7376764), (0.75162303, 0.7174143)] (
+                interpolation = "faceVarying"
+            )
+            int[] primvars:st:indices = [14, 10, 4, 20, 0, 9, 15, 1, 14, 16, 13, 10, 16, 17, 12, 13, 17, 18, 11, 12, 18, 15, 9, 11, 19, 21, 8, 5, 21, 22, 7, 8, 22, 23, 6, 7, 23, 20, 4, 6, 5, 2, 3, 19]
+            uniform token subdivisionScheme = "none"
+            custom string userProperties:blender:data_name = "Plane.253"
+        }
+    }
+
+    def Scope "_materials"
+    {
+        def Material "MI_Decal_Line"
+        {
+            token outputs:surface.connect = </root/_materials/MI_Decal_Line/Principled_BSDF.outputs:surface>
+            custom string userProperties:blender:data_name = "MI_Decal_Line"
+
+            def Shader "Principled_BSDF"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                float inputs:clearcoat = 0
+                float inputs:clearcoatRoughness = 0.03
+                color3f inputs:diffuseColor = (0.80010176, 0.18927902, 0)
+                float inputs:ior = 1.5
+                float inputs:metallic = 0
+                float inputs:opacity = 1
+                float inputs:roughness = 0.5
+                float inputs:specular = 0.5
+                token outputs:surface
+            }
+        }
+    }
+}
+

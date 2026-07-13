@@ -1,0 +1,238 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+    doc = "Blender v5.1.2"
+    metersPerUnit = 1
+    upAxis = "Y"
+)
+
+def Xform "root" (
+    customData = {
+        dictionary Blender = {
+            bool generated = 1
+        }
+    }
+)
+{
+    float3 xformOp:rotateXYZ = (-90, -0, 0)
+    uniform token[] xformOpOrder = ["xformOp:rotateXYZ"]
+
+    def Xform "Brick_TopTrim_90Angle_L"
+    {
+        custom string userProperties:blender:object_name = "Brick_TopTrim_90Angle_L"
+
+        def Mesh "Cube_002" (
+            active = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            uniform bool doubleSided = 1
+            float3[] extent = [(-1, 1.1920929e-7, -5.2848527e-8), (-0.29380298, 0.7000002, 3.0000005)]
+            int[] faceVertexCounts = [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4]
+            int[] faceVertexIndices = [3, 6, 5, 0, 1, 4, 7, 2, 2, 7, 6, 3, 12, 18, 19, 13, 11, 17, 18, 12, 10, 16, 17, 11, 22, 23, 14, 9, 20, 21, 16, 10, 34, 30, 21, 33, 13, 19, 23, 22, 19, 28, 31, 23, 18, 27, 28, 19, 17, 26, 27, 18, 16, 25, 26, 17, 23, 31, 24, 14, 21, 30, 25, 16, 32, 33, 21, 20, 8, 15, 33, 32, 29, 34, 33, 15]
+            rel material:binding = </root/_materials/MI_RedBrick_Pale>
+            normal3f[] normals = [(-1, 3.774896e-8, 0), (-1, 3.7748926e-8, 0), (-1, -4.371142e-8, 0), (-1, -4.371142e-8, 0), (-1, 0, 0), (-1, 0, 0), (-1, 5.960467e-8, 0), (-1, 5.9604634e-8, 0), (-1, 5.9604634e-8, 0), (-1, 5.960467e-8, 0), (-1, 3.7748926e-8, 0), (-1, 3.774896e-8, 0), (0, -1, 4.5768974e-8), (0, -1, 4.5768974e-8), (0, -1, 4.5769088e-8), (0, -1, 4.5769088e-8), (0, -1, 5.314615e-8), (0, -1, 5.314615e-8), (0, -1, 4.5768974e-8), (0, -1, 4.5768974e-8), (0, -1, 2.621634e-8), (0, -1, 2.621634e-8), (0, -1, 5.314615e-8), (0, -1, 5.314615e-8), (0, -1, 4.5397464e-8), (0, -1, 4.5397464e-8), (0, -1, 1.5296811e-8), (0, -1, 1.5296811e-8), (0, -1, 4.8568104e-8), (0, -1, 4.8568104e-8), (0, -1, 2.621634e-8), (0, -1, 2.621634e-8), (1, -3.653768e-8, 0), (1, -3.0981337e-8, 0), (1, -3.0981333e-8, 0), (1, -3.653768e-8, 0), (0, -1, 4.5769088e-8), (0, -1, 4.5769088e-8), (0, -1, 4.5397464e-8), (0, -1, 4.5397464e-8), (1, -4.2691074e-8, 0), (1, -4.2691077e-8, 0), (1, -4.3000757e-8, 5.9804397e-15), (1, -4.3000753e-8, 5.980439e-15), (1, -4.3633396e-8, 0), (1, -4.3633396e-8, 0), (1, -4.2691077e-8, 0), (1, -4.2691074e-8, 0), (1, -6.8529836e-8, 1.4802976e-15), (1, -6.8529836e-8, 1.4802974e-15), (1, -4.3633396e-8, 0), (1, -4.3633396e-8, 0), (1, -6.20102e-8, 1.4802975e-15), (1, -6.20102e-8, 1.4802973e-15), (1, -6.8529836e-8, 1.4802974e-15), (1, -6.8529836e-8, 1.4802976e-15), (1, -4.3000753e-8, 5.980439e-15), (1, -4.3000757e-8, 5.9804397e-15), (1, -5.016756e-8, 1.19608786e-14), (1, -5.016756e-8, 1.19608786e-14), (1, -3.0981333e-8, 0), (1, -3.0981337e-8, 0), (1, -6.20102e-8, 1.4802973e-15), (1, -6.20102e-8, 1.4802975e-15), (0, -1, 7.5497944e-8), (0, -1, 7.5497944e-8), (0, -1, 4.8568104e-8), (0, -1, 4.8568104e-8), (0, -1, 7.549794e-8), (0, -1, 7.549794e-8), (0, -1, 7.5497944e-8), (0, -1, 7.5497944e-8), (0.99999994, -3.579201e-8, 0), (1, -3.653768e-8, 0), (1, -3.653768e-8, 0), (0.99999994, -3.579201e-8, 0)] (
+                interpolation = "faceVarying"
+            )
+            point3f[] points = [(-1, 0.20000009, -1.5099587e-8), (-1, 0.20000032, 3.0000005), (-1, 0.20000024, 2.0000002), (-1, 0.20000017, 1.0000001), (-1, 0.7000002, 3.0000005), (-1, 0.7, -5.2848527e-8), (-1, 0.70000005, 0.99999994), (-1, 0.70000017, 2), (-1, 1.1920929e-7, -9.00005e-15), (-1, 2.1159254e-7, 3), (-1, 1.500037e-7, 1), (-1, 1.8079811e-7, 2), (-1, 1.9322574e-7, 2.164609), (-1, 2.0126558e-7, 2.6658435), (-0.293803, 2.1159254e-7, 3), (-0.293803, 1.1920929e-7, -9.00005e-15), (-0.293803, 1.500037e-7, 1), (-0.293803, 1.8079811e-7, 2), (-0.293803, 1.9322574e-7, 2.164609), (-0.293803, 2.0126558e-7, 2.6658435), (-1, 1.3204394e-7, 0.16999997), (-0.293803, 1.3204394e-7, 0.16999997), (-1, 2.0780621e-7, 2.7524767), (-0.293803, 2.0780621e-7, 2.7524767), (-0.29380298, 0.6000002, 3), (-0.29380298, 0.6, 0.99999994), (-0.29380298, 0.60000014, 2), (-0.29380298, 0.60000014, 2.164609), (-0.29380298, 0.60000014, 2.6658435), (-0.29380298, 0.6000001, -4.5298744e-8), (-0.29380298, 0.6000001, 0.16999993), (-0.29380298, 0.60000014, 2.7524767), (-1, 1.2575758e-7, 0.08673468), (-0.293803, 1.2575758e-7, 0.08673468), (-0.29380298, 0.6000001, 0.08673464)]
+            color4f[] primvars:Attribute = [(1, 1, 1, 1), (1, 1, 1, 1), (1, 1, 1, 1), (1, 1, 1, 1), (1, 1, 1, 1), (1, 1, 1, 1), (1, 1, 1, 1), (1, 1, 1, 1), (1, 1, 1, 1), (1, 1, 1, 1), (1, 1, 1, 1), (1, 1, 1, 1), (1, 1, 1, 1), (1, 1, 1, 1), (1, 1, 1, 1), (1, 1, 1, 1), (1, 1, 1, 1), (1, 1, 1, 1), (1, 1, 1, 1), (1, 1, 1, 1), (1, 1, 1, 1), (1, 1, 1, 1), (1, 1, 1, 1), (1, 1, 1, 1), (1, 1, 1, 1), (1, 1, 1, 1), (1, 1, 1, 1), (1, 1, 1, 1), (1, 1, 1, 1), (1, 1, 1, 1), (1, 1, 1, 1), (1, 1, 1, 1), (1, 1, 1, 1), (1, 1, 1, 1), (1, 1, 1, 1), (1, 1, 1, 1), (1, 1, 1, 1), (1, 1, 1, 1), (1, 1, 1, 1), (1, 1, 1, 1), (1, 1, 1, 1), (1, 1, 1, 1), (1, 1, 1, 1), (1, 1, 1, 1), (1, 1, 1, 1), (1, 1, 1, 1), (1, 1, 1, 1), (1, 1, 1, 1), (1, 1, 1, 1), (1, 1, 1, 1), (1, 1, 1, 1), (1, 1, 1, 1), (1, 1, 1, 1), (1, 1, 1, 1), (1, 1, 1, 1), (1, 1, 1, 1), (1, 1, 1, 1), (1, 1, 1, 1), (1, 1, 1, 1), (1, 1, 1, 1), (1, 1, 1, 1), (1, 1, 1, 1), (1, 1, 1, 1), (1, 1, 1, 1), (1, 1, 1, 1), (1, 1, 1, 1), (1, 1, 1, 1), (1, 1, 1, 1), (1, 1, 1, 1), (1, 1, 1, 1), (1, 1, 1, 1), (1, 1, 1, 1), (1, 1, 1, 1), (1, 1, 1, 1), (1, 1, 1, 1), (1, 1, 1, 1)] (
+                interpolation = "faceVarying"
+            )
+            texCoord2f[] primvars:st = [(0.9999999, 0.49999976), (1, 1), (1, 0.5000001), (1, 0.9999998), (1, 8.629425e-8), (0.75000006, 1), (0.74999994, 0.4999998), (0.75000006, 0.9999999), (0.75, 7.423286e-8), (0.75000006, 0.50000006), (0, -0.5008902), (0, 1), (0, 0), (0, 0.5), (0, 0.5823045), (0, 0.83292174), (0, 0.85203916), (0.3333333, 1), (0.6639163, 1), (0.33333334, -0.5008902), (0.63385004, -0.5008902), (0.3333333, -9.934107e-9), (0.3333333, 0.5), (0.3333333, 0.5823044), (0.3333333, 0.85203916), (0.6639163, 0.85203916), (0.3333333, 0.83292174), (0, -0.41500002), (0.63385004, -0.41500008), (0.3333333, -0.41500002), (0, 0.8958759), (0.3333333, 0.8958759), (0.6639163, 0.8958759), (0.3333333, 1), (0.6894869, -1.4901161e-8), (0.6894869, 0.5), (0.6894869, 0.5823044), (0.3333333, 0.85203916), (0.6894869, 0.83292174), (0.33333334, -0.5008902), (0.3333333, -0.41500008), (0.6894869, -0.415), (0.3333333, 0.8958759), (0, -0.45706868), (0.3333333, -0.4570687), (0.63385004, -0.4570687), (0.3333333, -0.4570687)] (
+                interpolation = "faceVarying"
+            )
+            int[] primvars:st:indices = [3, 7, 6, 0, 1, 5, 9, 2, 2, 9, 8, 4, 14, 23, 26, 15, 13, 22, 23, 14, 12, 21, 22, 13, 30, 31, 17, 11, 27, 29, 21, 12, 46, 40, 28, 45, 16, 24, 31, 30, 25, 37, 42, 32, 23, 36, 38, 26, 22, 35, 36, 23, 21, 34, 35, 22, 32, 42, 33, 18, 29, 41, 34, 21, 43, 44, 29, 27, 10, 19, 44, 43, 39, 46, 45, 20]
+            texCoord2f[] primvars:UVMap_1 = [(0.5, 0.5), (0.5, 0.5), (0.5, 0.5), (0.5, 0.5), (0.5, 0.5), (0.5, 0.5), (0.5, 0.5), (0.5, 0.5), (0.7456172, 0.061398357), (0.7456173, 0.93338287), (0.7456172, 0.33333334), (0.7456173, 0.6666667), (0.7456173, 0.72153634), (0.7456173, 0.88861454), (0.7456173, 0.83625644), (0.9810163, 0.93338287), (0.9833896, 0.06661713), (0.9810162, 0.061398357), (0.98338974, 0.9386016), (0.9810162, 0.33333334), (0.016610302, 0.33333334), (0.9810163, 0.6666666), (0.016610302, 0.6666667), (0.9810163, 0.72153634), (0.016610302, 0.72153634), (0.9810163, 0.88861454), (0.9810163, 0.83625644), (0.9833896, 0.16374356), (0.016610302, 0.88861454), (0.7456172, 0.056666665), (0.7456172, 0.11081082), (0.9810162, 0.056666642), (0.98338974, 0.8891891), (0.016610302, 0.056666672), (0.9810162, 0.11081082), (0.7456173, 0.8614374), (0.9810163, 0.8614374), (0.9833896, 0.13856262), (0.8218461, 0.06661713), (0.17815374, 0.3333333), (0.17815378, 0.6666667), (0.17815381, 0.72153634), (0.8218461, 0.16374356), (0.17815381, 0.88861454), (0.82184625, 0.9386016), (0.82184625, 0.8891891), (0.17815375, 0.056666624), (0.8218461, 0.13856262), (0.7456172, 0.0866088), (0.9810162, 0.0866088), (0.98338974, 0.9133912), (0.82184625, 0.9133912)] (
+                interpolation = "faceVarying"
+            )
+            int[] primvars:UVMap_1:indices = [3, 6, 5, 0, 1, 4, 7, 2, 2, 7, 6, 3, 12, 23, 25, 13, 11, 21, 23, 12, 10, 19, 21, 11, 35, 36, 15, 9, 29, 31, 19, 10, 51, 45, 32, 50, 14, 26, 36, 35, 27, 42, 47, 37, 24, 41, 43, 28, 22, 40, 41, 24, 20, 39, 40, 22, 37, 47, 38, 16, 33, 46, 39, 20, 48, 49, 34, 30, 8, 17, 49, 48, 44, 51, 50, 18]
+            uniform token subdivisionScheme = "none"
+            uniform token subsetFamily:materialBind:familyType = "nonOverlapping"
+            custom string userProperties:blender:data_name = "Cube.002"
+
+            def GeomSubset "MI_RedBrick_Pale" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                uniform token elementType = "face"
+                uniform token familyName = "materialBind"
+                int[] indices = [3, 4, 5, 7, 8, 11, 12, 13, 15, 16, 17, 18]
+                rel material:binding = </root/_materials/MI_RedBrick_Pale>
+            }
+
+            def GeomSubset "MI_Trim" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                uniform token elementType = "face"
+                uniform token familyName = "materialBind"
+                int[] indices = [6, 9, 10, 14]
+                rel material:binding = </root/_materials/MI_Trim>
+            }
+
+            def GeomSubset "MI_InteriorWall" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                uniform token elementType = "face"
+                uniform token familyName = "materialBind"
+                int[] indices = [0, 1, 2]
+                rel material:binding = </root/_materials/MI_InteriorWall>
+            }
+        }
+    }
+
+    def Scope "_materials"
+    {
+        def Material "MI_RedBrick_Pale"
+        {
+            token outputs:surface.connect = </root/_materials/MI_RedBrick_Pale/Principled_BSDF.outputs:surface>
+            custom string userProperties:blender:data_name = "MI_RedBrick_Pale"
+
+            def Shader "Principled_BSDF"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                float inputs:clearcoat = 0
+                float inputs:clearcoatRoughness = 0.03
+                color3f inputs:diffuseColor.connect = </root/_materials/MI_RedBrick_Pale/Image_Texture.outputs:rgb>
+                float inputs:ior = 1.5
+                float inputs:metallic = 0
+                normal3f inputs:normal.connect = </root/_materials/MI_RedBrick_Pale/Image_Texture_001.outputs:rgb>
+                float inputs:opacity = 1
+                float inputs:roughness = 0.5
+                float inputs:specular = 0.5
+                token outputs:surface
+            }
+
+            def Shader "Image_Texture"
+            {
+                uniform token info:id = "UsdUVTexture"
+                token inputs:sourceColorSpace = "sRGB"
+                float2 inputs:st.connect = </root/_materials/MI_RedBrick_Pale/uvmap.outputs:result>
+                token inputs:wrapS = "repeat"
+                token inputs:wrapT = "repeat"
+                float3 outputs:rgb
+            }
+
+            def Shader "uvmap"
+            {
+                uniform token info:id = "UsdPrimvarReader_float2"
+                string inputs:varname = "st"
+                float2 outputs:result
+            }
+
+            def Shader "Image_Texture_001"
+            {
+                uniform token info:id = "UsdUVTexture"
+                float4 inputs:bias = (-1, -1, -1, -1)
+                float4 inputs:scale = (2, 2, 2, 2)
+                token inputs:sourceColorSpace = "raw"
+                float2 inputs:st.connect = </root/_materials/MI_RedBrick_Pale/uvmap.outputs:result>
+                token inputs:wrapS = "repeat"
+                token inputs:wrapT = "repeat"
+                float3 outputs:rgb
+            }
+        }
+
+        def Material "MI_Trim"
+        {
+            token outputs:surface.connect = </root/_materials/MI_Trim/Principled_BSDF.outputs:surface>
+            custom string userProperties:blender:data_name = "MI_Trim"
+
+            def Shader "Principled_BSDF"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                float inputs:clearcoat = 0
+                float inputs:clearcoatRoughness = 0.03
+                color3f inputs:diffuseColor.connect = </root/_materials/MI_Trim/Image_Texture.outputs:rgb>
+                float inputs:ior = 1.5
+                float inputs:metallic = 0
+                normal3f inputs:normal.connect = </root/_materials/MI_Trim/Image_Texture_001.outputs:rgb>
+                float inputs:opacity = 1
+                float inputs:roughness = 0.5
+                float inputs:specular = 0.5
+                token outputs:surface
+            }
+
+            def Shader "Image_Texture"
+            {
+                uniform token info:id = "UsdUVTexture"
+                token inputs:sourceColorSpace = "sRGB"
+                float2 inputs:st.connect = </root/_materials/MI_Trim/uvmap.outputs:result>
+                token inputs:wrapS = "repeat"
+                token inputs:wrapT = "repeat"
+                float3 outputs:rgb
+            }
+
+            def Shader "uvmap"
+            {
+                uniform token info:id = "UsdPrimvarReader_float2"
+                string inputs:varname = "st"
+                float2 outputs:result
+            }
+
+            def Shader "Image_Texture_001"
+            {
+                uniform token info:id = "UsdUVTexture"
+                float4 inputs:bias = (-1, -1, -1, -1)
+                float4 inputs:scale = (2, 2, 2, 2)
+                token inputs:sourceColorSpace = "raw"
+                float2 inputs:st.connect = </root/_materials/MI_Trim/uvmap.outputs:result>
+                token inputs:wrapS = "repeat"
+                token inputs:wrapT = "repeat"
+                float3 outputs:rgb
+            }
+        }
+
+        def Material "MI_InteriorWall"
+        {
+            token outputs:surface.connect = </root/_materials/MI_InteriorWall/Principled_BSDF.outputs:surface>
+            custom string userProperties:blender:data_name = "MI_InteriorWall"
+
+            def Shader "Principled_BSDF"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                float inputs:clearcoat = 0
+                float inputs:clearcoatRoughness = 0.03
+                color3f inputs:diffuseColor.connect = </root/_materials/MI_InteriorWall/Image_Texture.outputs:rgb>
+                float inputs:ior = 1.5
+                float inputs:metallic = 0
+                normal3f inputs:normal.connect = </root/_materials/MI_InteriorWall/Image_Texture_001.outputs:rgb>
+                float inputs:opacity = 1
+                float inputs:roughness = 0.5
+                float inputs:specular = 0.5
+                token outputs:surface
+            }
+
+            def Shader "Image_Texture"
+            {
+                uniform token info:id = "UsdUVTexture"
+                token inputs:sourceColorSpace = "sRGB"
+                float2 inputs:st.connect = </root/_materials/MI_InteriorWall/uvmap.outputs:result>
+                token inputs:wrapS = "repeat"
+                token inputs:wrapT = "repeat"
+                float3 outputs:rgb
+            }
+
+            def Shader "uvmap"
+            {
+                uniform token info:id = "UsdPrimvarReader_float2"
+                string inputs:varname = "st"
+                float2 outputs:result
+            }
+
+            def Shader "Image_Texture_001"
+            {
+                uniform token info:id = "UsdUVTexture"
+                float4 inputs:bias = (-1, -1, -1, -1)
+                float4 inputs:scale = (2, 2, 2, 2)
+                token inputs:sourceColorSpace = "raw"
+                float2 inputs:st.connect = </root/_materials/MI_InteriorWall/uvmap.outputs:result>
+                token inputs:wrapS = "repeat"
+                token inputs:wrapT = "repeat"
+                float3 outputs:rgb
+            }
+        }
+    }
+}
+

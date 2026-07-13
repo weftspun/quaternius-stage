@@ -1,0 +1,98 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+    doc = "Blender v5.1.2"
+    metersPerUnit = 1
+    upAxis = "Y"
+)
+
+def Xform "root" (
+    customData = {
+        dictionary Blender = {
+            bool generated = 1
+        }
+    }
+)
+{
+    float3 xformOp:rotateXYZ = (-90, -0, 0)
+    uniform token[] xformOpOrder = ["xformOp:rotateXYZ"]
+
+    def Xform "Decal_DoubleYellow_Straight"
+    {
+        custom string userProperties:blender:object_name = "Decal_DoubleYellow_Straight"
+
+        def Mesh "Plane_007" (
+            active = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            uniform bool doubleSided = 1
+            float3[] extent = [(-3, -0.19692576, -0.11000003), (3, 0.19692573, -0.11)]
+            int[] faceVertexCounts = [4]
+            int[] faceVertexIndices = [0, 1, 3, 2]
+            rel material:binding = </root/_materials/MI_StreetDecals>
+            normal3f[] normals = [(0, 7.5668936e-8, 1), (0, 7.5668936e-8, 1), (0, 7.5668936e-8, 1), (0, 7.5668936e-8, 1)] (
+                interpolation = "faceVarying"
+            )
+            point3f[] points = [(-3, -0.19692576, -0.11), (3, -0.19692576, -0.11), (-3, 0.19692573, -0.11000003), (3, 0.19692573, -0.11000003)]
+            texCoord2f[] primvars:st = [(1, 0.5357503), (-0.99999994, 0.5357503), (1, 0.45627162), (-1, 0.45627177)] (
+                interpolation = "faceVarying"
+            )
+            int[] primvars:st:indices = [0, 1, 3, 2]
+            uniform token subdivisionScheme = "none"
+            custom string userProperties:blender:data_name = "Plane.007"
+        }
+    }
+
+    def Scope "_materials"
+    {
+        def Material "MI_StreetDecals"
+        {
+            token outputs:surface.connect = </root/_materials/MI_StreetDecals/Principled_BSDF.outputs:surface>
+            custom string userProperties:blender:data_name = "MI_StreetDecals"
+
+            def Shader "Principled_BSDF"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                float inputs:clearcoat = 0
+                float inputs:clearcoatRoughness = 0.03
+                color3f inputs:diffuseColor.connect = </root/_materials/MI_StreetDecals/Image_Texture.outputs:rgb>
+                float inputs:ior = 1.5
+                float inputs:metallic = 0
+                float inputs:opacity = 1
+                float inputs:opacity.connect = </root/_materials/MI_StreetDecals/Image_Texture_001.outputs:r>
+                float inputs:roughness = 0.5
+                float inputs:specular = 0.5
+                token outputs:surface
+            }
+
+            def Shader "Image_Texture"
+            {
+                uniform token info:id = "UsdUVTexture"
+                token inputs:sourceColorSpace = "raw"
+                float2 inputs:st.connect = </root/_materials/MI_StreetDecals/uvmap.outputs:result>
+                token inputs:wrapS = "repeat"
+                token inputs:wrapT = "repeat"
+                float3 outputs:rgb
+            }
+
+            def Shader "uvmap"
+            {
+                uniform token info:id = "UsdPrimvarReader_float2"
+                string inputs:varname = "st"
+                float2 outputs:result
+            }
+
+            def Shader "Image_Texture_001"
+            {
+                uniform token info:id = "UsdUVTexture"
+                token inputs:sourceColorSpace = "raw"
+                float2 inputs:st.connect = </root/_materials/MI_StreetDecals/uvmap.outputs:result>
+                token inputs:wrapS = "repeat"
+                token inputs:wrapT = "repeat"
+                float outputs:r
+            }
+        }
+    }
+}
+

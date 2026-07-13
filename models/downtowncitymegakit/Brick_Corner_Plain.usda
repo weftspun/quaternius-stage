@@ -1,0 +1,178 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+    doc = "Blender v5.1.2"
+    metersPerUnit = 1
+    upAxis = "Y"
+)
+
+def Xform "root" (
+    customData = {
+        dictionary Blender = {
+            bool generated = 1
+        }
+    }
+)
+{
+    float3 xformOp:rotateXYZ = (-90, -0, 0)
+    uniform token[] xformOpOrder = ["xformOp:rotateXYZ"]
+
+    def Xform "Brick_Corner_Plain"
+    {
+        custom string userProperties:blender:object_name = "Brick_Corner_Plain"
+
+        def Mesh "Cube_002" (
+            active = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            uniform bool doubleSided = 1
+            float3[] extent = [(-1.0000001, -1.5893256e-8, -1.5099579e-7), (1, 2.0000002, 3.0000005)]
+            int[] faceVertexCounts = [4, 4, 4, 4, 4, 4]
+            int[] faceVertexIndices = [5, 3, 2, 4, 13, 11, 10, 14, 6, 8, 14, 12, 12, 14, 10, 9, 3, 1, 0, 2, 8, 7, 13, 14]
+            rel material:binding = </root/_materials/MI_RedBrick>
+            normal3f[] normals = [(-1.3909064e-8, -1, 5.562969e-8), (-1.3909064e-8, -1, 5.562969e-8), (-1.3909064e-8, -1, 5.562969e-8), (-1.3909064e-8, -1, 5.562969e-8), (1.655683e-8, 1, -7.4505806e-8), (1.655683e-8, 1, -7.4505806e-8), (1.6556838e-8, 1, -7.036659e-8), (1.6556838e-8, 1, -7.0366596e-8), (1, -6.6227386e-8, 0), (1, -6.622738e-8, 3.9474586e-15), (1, -6.622738e-8, 3.947459e-15), (1, -6.6227386e-8, 0), (1.6556843e-8, 1, -6.6227386e-8), (1.6556838e-8, 1, -7.0366596e-8), (1.6556838e-8, 1, -7.036659e-8), (1.6556843e-8, 1, -6.6227386e-8), (-1, 2.5165964e-8, -3.973643e-8), (-1, 2.5165964e-8, -3.973643e-8), (-1, 2.5165964e-8, -3.973643e-8), (-1, 2.5165964e-8, -3.973643e-8), (1, -6.622738e-8, 3.9474586e-15), (1, -6.622737e-8, 7.894918e-15), (1, -6.622737e-8, 7.894918e-15), (1, -6.622738e-8, 3.947459e-15)] (
+                interpolation = "faceVarying"
+            )
+            point3f[] points = [(-0.9999999, 2, -1.5099579e-7), (-1, 2.0000002, 2.9999998), (-1, -1.5893256e-8, 1.1999074e-15), (-1.0000001, 2.1060045e-7, 3), (1, 1.5893256e-8, -1.1999074e-15), (1, 1.2317767e-7, 3), (-0.7999998, 2, -1.5099579e-7), (-0.7999998, 2.0000002, 3.0000002), (-0.7999998, 2, 0.99999994), (1, 0.20000005, -1.5099584e-8), (1, 0.20000012, 0.9999999), (1, 0.20000027, 2.9999995), (-0.7999999, 0.20000008, -1.5099586e-8), (-0.7999999, 0.2000003, 3.0000005), (-0.7999999, 0.20000015, 1.0000001)]
+            color4f[] primvars:Attribute = [(1, 1, 1, 1), (1, 1, 1, 1), (1, 1, 1, 1), (1, 1, 1, 1), (1, 1, 1, 1), (1, 1, 1, 1), (1, 1, 1, 1), (1, 1, 1, 1), (1, 1, 1, 1), (1, 1, 1, 1), (1, 1, 1, 1), (1, 1, 1, 1), (1, 1, 1, 1), (1, 1, 1, 1), (1, 1, 1, 1), (1, 1, 1, 1), (1, 1, 1, 1), (1, 1, 1, 1), (1, 1, 1, 1), (1, 1, 1, 1), (1, 1, 1, 1), (1, 1, 1, 1), (1, 1, 1, 1), (1, 1, 1, 1)] (
+                interpolation = "faceVarying"
+            )
+            texCoord2f[] primvars:st = [(0, -0.5), (0, 1), (0, -0.5), (1, -0.5), (0, 1), (1, 1), (1, -0.5), (1, 1), (0.9999999, 0.49999976), (1, 1), (1, 0.9999998), (1, 8.629425e-8), (2.9802322e-8, 0.5), (0, 0), (1.4901161e-7, 1), (0, 0.9999997), (0.1, 0.49999997), (0.89999986, 0.4999998), (0.9, 1), (0.099999994, 0.99999976), (0.9, 7.766482e-8), (0.10000013, 1), (0.90000004, 0.9999999), (0.099999994, 8.629424e-9)] (
+                interpolation = "faceVarying"
+            )
+            int[] primvars:st:indices = [7, 4, 2, 6, 18, 15, 13, 20, 8, 10, 21, 16, 17, 22, 14, 12, 5, 1, 0, 3, 11, 9, 19, 23]
+            texCoord2f[] primvars:UVMap_1 = [(0.4145576, 0.079229206), (0.4145576, 0.9298355), (0.018371522, 0.079229206), (0.98162854, 0.079229206), (0.018371522, 0.9298355), (0.98162854, 0.9298355), (0.5854424, 0.079229206), (0.5854424, 0.9298355), (0.6856062, 0.55239886), (0.68560624, 0.7380053), (0.68560624, 0.73800516), (0.68560624, 0.36679262), (0.31439364, 0.5523989), (0.3143936, 0.36679262), (0.31439367, 0.7380053), (0.3143936, 0.73800516), (0.35151488, 0.5523989), (0.64848495, 0.55239886), (0.64848495, 0.7380053), (0.35151488, 0.73800516), (0.64848495, 0.36679262), (0.35151494, 0.7380053), (0.648485, 0.7380052), (0.35151488, 0.36679262)] (
+                interpolation = "faceVarying"
+            )
+            int[] primvars:UVMap_1:indices = [7, 4, 2, 6, 18, 15, 13, 20, 8, 10, 21, 16, 17, 22, 14, 12, 5, 1, 0, 3, 11, 9, 19, 23]
+            uniform token subdivisionScheme = "none"
+            uniform token subsetFamily:materialBind:familyType = "nonOverlapping"
+            custom string userProperties:blender:data_name = "Cube.002"
+
+            def GeomSubset "MI_RedBrick" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                uniform token elementType = "face"
+                uniform token familyName = "materialBind"
+                int[] indices = [0, 4]
+                rel material:binding = </root/_materials/MI_RedBrick>
+            }
+
+            def GeomSubset "MI_InteriorWall" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                uniform token elementType = "face"
+                uniform token familyName = "materialBind"
+                int[] indices = [1, 2, 3, 5]
+                rel material:binding = </root/_materials/MI_InteriorWall>
+            }
+        }
+    }
+
+    def Scope "_materials"
+    {
+        def Material "MI_RedBrick"
+        {
+            token outputs:surface.connect = </root/_materials/MI_RedBrick/Principled_BSDF.outputs:surface>
+            custom string userProperties:blender:data_name = "MI_RedBrick"
+
+            def Shader "Principled_BSDF"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                float inputs:clearcoat = 0
+                float inputs:clearcoatRoughness = 0.03
+                color3f inputs:diffuseColor.connect = </root/_materials/MI_RedBrick/Image_Texture.outputs:rgb>
+                float inputs:ior = 1.5
+                float inputs:metallic = 0
+                normal3f inputs:normal.connect = </root/_materials/MI_RedBrick/Image_Texture_001.outputs:rgb>
+                float inputs:opacity = 1
+                float inputs:roughness = 0.5
+                float inputs:specular = 0.5
+                token outputs:surface
+            }
+
+            def Shader "Image_Texture"
+            {
+                uniform token info:id = "UsdUVTexture"
+                token inputs:sourceColorSpace = "sRGB"
+                float2 inputs:st.connect = </root/_materials/MI_RedBrick/uvmap.outputs:result>
+                token inputs:wrapS = "repeat"
+                token inputs:wrapT = "repeat"
+                float3 outputs:rgb
+            }
+
+            def Shader "uvmap"
+            {
+                uniform token info:id = "UsdPrimvarReader_float2"
+                string inputs:varname = "st"
+                float2 outputs:result
+            }
+
+            def Shader "Image_Texture_001"
+            {
+                uniform token info:id = "UsdUVTexture"
+                float4 inputs:bias = (-1, -1, -1, -1)
+                float4 inputs:scale = (2, 2, 2, 2)
+                token inputs:sourceColorSpace = "raw"
+                float2 inputs:st.connect = </root/_materials/MI_RedBrick/uvmap.outputs:result>
+                token inputs:wrapS = "repeat"
+                token inputs:wrapT = "repeat"
+                float3 outputs:rgb
+            }
+        }
+
+        def Material "MI_InteriorWall"
+        {
+            token outputs:surface.connect = </root/_materials/MI_InteriorWall/Principled_BSDF.outputs:surface>
+            custom string userProperties:blender:data_name = "MI_InteriorWall"
+
+            def Shader "Principled_BSDF"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                float inputs:clearcoat = 0
+                float inputs:clearcoatRoughness = 0.03
+                color3f inputs:diffuseColor.connect = </root/_materials/MI_InteriorWall/Image_Texture.outputs:rgb>
+                float inputs:ior = 1.5
+                float inputs:metallic = 0
+                normal3f inputs:normal.connect = </root/_materials/MI_InteriorWall/Image_Texture_001.outputs:rgb>
+                float inputs:opacity = 1
+                float inputs:roughness = 0.5
+                float inputs:specular = 0.5
+                token outputs:surface
+            }
+
+            def Shader "Image_Texture"
+            {
+                uniform token info:id = "UsdUVTexture"
+                token inputs:sourceColorSpace = "sRGB"
+                float2 inputs:st.connect = </root/_materials/MI_InteriorWall/uvmap.outputs:result>
+                token inputs:wrapS = "repeat"
+                token inputs:wrapT = "repeat"
+                float3 outputs:rgb
+            }
+
+            def Shader "uvmap"
+            {
+                uniform token info:id = "UsdPrimvarReader_float2"
+                string inputs:varname = "st"
+                float2 outputs:result
+            }
+
+            def Shader "Image_Texture_001"
+            {
+                uniform token info:id = "UsdUVTexture"
+                float4 inputs:bias = (-1, -1, -1, -1)
+                float4 inputs:scale = (2, 2, 2, 2)
+                token inputs:sourceColorSpace = "raw"
+                float2 inputs:st.connect = </root/_materials/MI_InteriorWall/uvmap.outputs:result>
+                token inputs:wrapS = "repeat"
+                token inputs:wrapT = "repeat"
+                float3 outputs:rgb
+            }
+        }
+    }
+}
+

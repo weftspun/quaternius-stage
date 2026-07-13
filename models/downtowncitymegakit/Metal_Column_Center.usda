@@ -1,0 +1,104 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+    doc = "Blender v5.1.2"
+    metersPerUnit = 1
+    upAxis = "Y"
+)
+
+def Xform "root" (
+    customData = {
+        dictionary Blender = {
+            bool generated = 1
+        }
+    }
+)
+{
+    float3 xformOp:rotateXYZ = (-90, -0, 0)
+    uniform token[] xformOpOrder = ["xformOp:rotateXYZ"]
+
+    def Xform "Metal_Column_Center"
+    {
+        custom string userProperties:blender:object_name = "Metal_Column_Center"
+
+        def Mesh "Cube_002" (
+            active = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            uniform bool doubleSided = 1
+            float3[] extent = [(-0.24888018, -0.24911033, -1.8807304e-8), (0.24888015, 0.2491106, 2.9999995)]
+            int[] faceVertexCounts = [4, 4, 4, 4, 4, 4, 4, 4]
+            int[] faceVertexIndices = [13, 6, 10, 1, 14, 7, 11, 0, 5, 8, 12, 2, 4, 9, 15, 3, 1, 10, 9, 4, 0, 11, 8, 5, 3, 15, 7, 14, 2, 12, 6, 13]
+            rel material:binding = </root/_materials/MI_Trim_MetalConcrete>
+            normal3f[] normals = [(1, -3.987836e-8, 1.4901167e-8), (1, -3.9878355e-8, 1.4901167e-8), (1, -7.975672e-8, 1.241764e-8), (1, -7.975672e-8, 1.241764e-8), (-1, 3.9878355e-8, -1.7384693e-8), (-1, 3.987836e-8, -1.7384693e-8), (-1, 7.975671e-8, -1.4901168e-8), (-1, 7.975671e-8, -1.4901168e-8), (5.987283e-8, 1, -9.70727e-8), (5.987283e-8, 1, -9.70727e-8), (1.1974566e-7, 1, -9.971708e-8), (1.1974566e-7, 1, -9.971708e-8), (-7.484107e-8, -1, 8.7093866e-8), (-7.484107e-8, -1, 8.7093866e-8), (-1.197457e-7, -1, 8.4748834e-8), (-1.197457e-7, -1, 8.4748834e-8), (-2.9936427e-8, -1, 8.943891e-8), (-2.9936427e-8, -1, 8.943891e-8), (-7.484107e-8, -1, 8.7093866e-8), (-7.484107e-8, -1, 8.7093866e-8), (0, 1, -9.442834e-8), (0, 1, -9.442834e-8), (5.987283e-8, 1, -9.70727e-8), (5.987283e-8, 1, -9.70727e-8), (-1, 0, -1.9868217e-8), (-1, 0, -1.9868217e-8), (-1, 3.987836e-8, -1.7384693e-8), (-1, 3.9878355e-8, -1.7384693e-8), (1, 0, 1.7384693e-8), (1, 0, 1.7384693e-8), (1, -3.9878355e-8, 1.4901167e-8), (1, -3.987836e-8, 1.4901167e-8)] (
+                interpolation = "faceVarying"
+            )
+            point3f[] points = [(-0.24888012, 0.24911031, -1.8807304e-8), (0.24888012, -0.24911033, 1.8807306e-8), (0.24888015, 0.24911027, -1.8807302e-8), (-0.24888012, -0.24911027, 1.8807302e-8), (0, -0.24911031, 1.8807304e-8), (1.4901161e-8, 0.24911031, -1.8807304e-8), (0.24888009, 2.6961317e-7, 2.9999995), (-0.24888018, 3.0004907e-7, 2.9999995), (-2.8851932e-8, 0.2491106, 2.9999995), (-4.3753094e-8, -0.24911003, 2.9999995), (0.24888009, -0.24911003, 2.9999995), (-0.24888015, 0.2491106, 2.9999995), (0.24888009, 0.24911058, 2.9999995), (0.24888013, -2.9802322e-8, 2.2500126e-15), (-0.24888012, 2.9802322e-8, -2.2500126e-15), (-0.24888018, -0.24911001, 2.9999995)]
+            texCoord2f[] primvars:st = [(0.98281807, 0.99795145), (0.9828181, 0.9026268), (0.98281807, 0.99795145), (0.9828181, 0.9026268), (0.98281807, 0.99795145), (0.9828181, 0.9026268), (0.98281807, 0.99795145), (0.9828181, 0.9026268), (0.9828181, 0.95028913), (0.9828181, 0.95028913), (0.02182099, 0.95028925), (0.021820992, 0.9502893), (0.02182099, 0.95028925), (0.021820992, 0.9502893), (0.02182099, 0.9979515), (0.021820989, 0.9026269), (0.02182099, 0.9979515), (0.021820989, 0.9026269), (0.02182099, 0.9979515), (0.021820989, 0.9026269), (0.9828181, 0.95028913), (0.9828181, 0.95028913), (0.02182099, 0.9979515), (0.021820989, 0.9026269)] (
+                interpolation = "faceVarying"
+            )
+            int[] primvars:st:indices = [20, 10, 14, 2, 21, 11, 16, 0, 9, 12, 18, 4, 8, 13, 22, 6, 3, 15, 13, 8, 1, 17, 12, 9, 7, 23, 11, 21, 5, 19, 10, 20]
+            texCoord2f[] primvars:UVMap_1 = [(0.2510426, 0.98334205), (0.25103593, 0.019118488), (0.25104275, 0.98334205), (0.25103593, 0.019118488), (0.251036, 0.98334205), (0.25104275, 0.019118488), (0.25103593, 0.98334205), (0.25104254, 0.019118488), (0.25103593, 0.8260536), (0.25103593, 0.17640692), (0.25103596, 0.8260536), (0.25103596, 0.17640692), (0.2692573, 0.8250804), (0.2692573, 0.17543374), (0.26925734, 0.8250804), (0.26925734, 0.17543374), (0.2692572, 0.8250804), (0.2692572, 0.17543374), (0.2692572, 0.8250804), (0.2692572, 0.17543374), (0.2692573, 0.9817451), (0.26925722, 0.018769104), (0.2692573, 0.9817451), (0.26925722, 0.018769104), (0.26925716, 0.9817451), (0.2692573, 0.018769104), (0.25104275, 0.8260536), (0.25104275, 0.17640692), (0.25104257, 0.8260536), (0.25104257, 0.17640692), (0.26925716, 0.9817451), (0.26925737, 0.018769104)] (
+                interpolation = "faceVarying"
+            )
+            int[] primvars:UVMap_1:indices = [26, 12, 20, 2, 28, 14, 22, 0, 10, 16, 24, 4, 8, 18, 30, 6, 3, 21, 19, 9, 1, 23, 17, 11, 7, 31, 15, 29, 5, 25, 13, 27]
+            uniform token subdivisionScheme = "none"
+            custom string userProperties:blender:data_name = "Cube.002"
+        }
+    }
+
+    def Scope "_materials"
+    {
+        def Material "MI_Trim_MetalConcrete"
+        {
+            token outputs:surface.connect = </root/_materials/MI_Trim_MetalConcrete/Principled_BSDF.outputs:surface>
+            custom string userProperties:blender:data_name = "MI_Trim_MetalConcrete"
+
+            def Shader "Principled_BSDF"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                float inputs:clearcoat = 0
+                float inputs:clearcoatRoughness = 0.03
+                color3f inputs:diffuseColor.connect = </root/_materials/MI_Trim_MetalConcrete/Image_Texture.outputs:rgb>
+                float inputs:ior = 1.5
+                float inputs:metallic = 0
+                normal3f inputs:normal.connect = </root/_materials/MI_Trim_MetalConcrete/Image_Texture_001.outputs:rgb>
+                float inputs:opacity = 1
+                float inputs:roughness = 0.5
+                float inputs:specular = 0.5
+                token outputs:surface
+            }
+
+            def Shader "Image_Texture"
+            {
+                uniform token info:id = "UsdUVTexture"
+                token inputs:sourceColorSpace = "sRGB"
+                float2 inputs:st.connect = </root/_materials/MI_Trim_MetalConcrete/uvmap.outputs:result>
+                token inputs:wrapS = "repeat"
+                token inputs:wrapT = "repeat"
+                float3 outputs:rgb
+            }
+
+            def Shader "uvmap"
+            {
+                uniform token info:id = "UsdPrimvarReader_float2"
+                string inputs:varname = "st"
+                float2 outputs:result
+            }
+
+            def Shader "Image_Texture_001"
+            {
+                uniform token info:id = "UsdUVTexture"
+                float4 inputs:bias = (-1, -1, -1, -1)
+                float4 inputs:scale = (2, 2, 2, 2)
+                token inputs:sourceColorSpace = "raw"
+                float2 inputs:st.connect = </root/_materials/MI_Trim_MetalConcrete/uvmap.outputs:result>
+                token inputs:wrapS = "repeat"
+                token inputs:wrapT = "repeat"
+                float3 outputs:rgb
+            }
+        }
+    }
+}
+

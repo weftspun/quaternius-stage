@@ -1,0 +1,205 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+    doc = "Blender v5.1.2"
+    metersPerUnit = 1
+    upAxis = "Y"
+)
+
+def Xform "root" (
+    customData = {
+        dictionary Blender = {
+            bool generated = 1
+        }
+    }
+)
+{
+    float3 xformOp:rotateXYZ = (-90, -0, 0)
+    uniform token[] xformOpOrder = ["xformOp:rotateXYZ"]
+
+    def Xform "WallBand_Straight"
+    {
+        custom string userProperties:blender:object_name = "WallBand_Straight"
+
+        def Mesh "Plane_101" (
+            active = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            uniform bool doubleSided = 1
+            float3[] extent = [(-2.2000003, -2.0000005, -6.278328e-7), (-1.992499, 2.0000005, 3.0000007)]
+            int[] faceVertexCounts = [4, 4, 4, 4, 4]
+            int[] faceVertexIndices = [8, 0, 1, 9, 5, 2, 6, 7, 7, 6, 3, 4, 10, 8, 9, 11, 12, 13, 15, 14]
+            rel material:binding = </root/_materials/MI_Trim_02>
+            normal3f[] normals = [(0.7071066, -1.05367086e-7, -0.70710695), (0.7071066, -1.05367086e-7, -0.70710695), (0.7071066, -1.05367086e-7, -0.70710695), (0.7071066, -1.05367086e-7, -0.70710695), (0.9701425, 4.336875e-7, 0.24253577), (0.9701425, 4.336875e-7, 0.24253577), (0.97014254, 2.5298436e-7, 0.24253574), (0.9701425, 2.5298436e-7, 0.24253576), (0.9701425, 2.5298436e-7, 0.24253576), (0.97014254, 2.5298436e-7, 0.24253574), (0.97014254, 7.228126e-8, 0.24253573), (0.97014254, 7.228126e-8, 0.24253573), (1, 1.788139e-7, 2.086162e-7), (1, 1.788139e-7, 2.086162e-7), (1, 1.788139e-7, 2.086162e-7), (1, 1.788139e-7, 2.086162e-7), (1, 0, 0), (1, 0, 0), (1, 0, 0), (1, 0, 0)] (
+                interpolation = "faceVarying"
+            )
+            point3f[] points = [(-2.1999998, -2.0000002, 0.8000006), (-2.2000003, 1.9999998, 0.7999993), (-1.9999996, -2.0000005, 6.2783306e-7), (-2.0000002, 1.9999995, -6.278328e-7), (-2.2000003, 1.9999998, 0.7999993), (-2.1999998, -2.0000002, 0.8000006), (-2.0000002, -4.7683716e-7, 1.4968704e-13), (-2.2000003, -2.2570399e-7, 0.79999995), (-1.9999996, -2.0000002, 1.0000006), (-2.0000002, 1.9999999, 0.99999934), (-2.0000002, -1.9999995, 3.0000007), (-2.0000005, 2.0000005, 2.9999993), (-1.992499, -1.9398932, 2.8449163), (-1.992499, -1.9398932, 2.601933), (-1.992499, -1.5506907, 2.8449156), (-1.992499, -1.5506907, 2.601933)]
+            texCoord2f[] primvars:st = [(0.16221836, 0.36233985), (0.8377816, 0.36233985), (0.22600144, 0.60512286), (0.7739986, 0.60512286), (0.7739986, 0.6555187), (0.22600144, 0.6555187), (0.50135446, 0.60512286), (0.50135446, 0.6555187), (0.16221836, 0.4089061), (0.50032514, 0.4089061), (0.83778155, 0.4089061), (1.1596749, 0.4089061), (0.50032514, 0.7504531), (1.1596749, 0.7504531), (0.7996159, 0.5791302), (0.79961586, 0.4908548), (0.94101226, 0.57912993), (0.9410123, 0.49085492)] (
+                interpolation = "faceVarying"
+            )
+            int[] primvars:st:indices = [8, 0, 1, 10, 5, 2, 6, 7, 7, 6, 3, 4, 12, 9, 11, 13, 14, 15, 17, 16]
+            uniform token subdivisionScheme = "none"
+            uniform token subsetFamily:materialBind:familyType = "nonOverlapping"
+            custom string userProperties:blender:data_name = "Plane.101"
+
+            def GeomSubset "MI_Trim_02" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                uniform token elementType = "face"
+                uniform token familyName = "materialBind"
+                int[] indices = [0, 3]
+                rel material:binding = </root/_materials/MI_Trim_02>
+            }
+
+            def GeomSubset "MI_Trim_01" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                uniform token elementType = "face"
+                uniform token familyName = "materialBind"
+                int[] indices = [1, 2]
+                rel material:binding = </root/_materials/MI_Trim_01>
+            }
+
+            def GeomSubset "M_Decal_White" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                uniform token elementType = "face"
+                uniform token familyName = "materialBind"
+                int[] indices = [4]
+                rel material:binding = </root/_materials/M_Decal_White>
+            }
+        }
+    }
+
+    def Scope "_materials"
+    {
+        def Material "MI_Trim_02"
+        {
+            token outputs:surface.connect = </root/_materials/MI_Trim_02/Principled_BSDF.outputs:surface>
+            custom string userProperties:blender:data_name = "MI_Trim_02"
+
+            def Shader "Principled_BSDF"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                float inputs:clearcoat = 0
+                float inputs:clearcoatRoughness = 0.03
+                color3f inputs:diffuseColor.connect = </root/_materials/MI_Trim_02/Image_Texture.outputs:rgb>
+                float inputs:ior = 1.5
+                float inputs:metallic = 0
+                float inputs:opacity = 1
+                float inputs:roughness = 0.5
+                float inputs:specular = 0.5
+                token outputs:surface
+            }
+
+            def Shader "Image_Texture"
+            {
+                uniform token info:id = "UsdUVTexture"
+                token inputs:sourceColorSpace = "sRGB"
+                float2 inputs:st.connect = </root/_materials/MI_Trim_02/uvmap.outputs:result>
+                token inputs:wrapS = "repeat"
+                token inputs:wrapT = "repeat"
+                float3 outputs:rgb
+            }
+
+            def Shader "uvmap"
+            {
+                uniform token info:id = "UsdPrimvarReader_float2"
+                string inputs:varname = "st"
+                float2 outputs:result
+            }
+        }
+
+        def Material "MI_Trim_01"
+        {
+            token outputs:surface.connect = </root/_materials/MI_Trim_01/Principled_BSDF.outputs:surface>
+            custom string userProperties:blender:data_name = "MI_Trim_01"
+
+            def Shader "Principled_BSDF"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                float inputs:clearcoat = 0
+                float inputs:clearcoatRoughness = 0.03
+                color3f inputs:diffuseColor.connect = </root/_materials/MI_Trim_01/Image_Texture.outputs:rgb>
+                float inputs:ior = 1.5
+                float inputs:metallic = 0
+                normal3f inputs:normal.connect = </root/_materials/MI_Trim_01/Image_Texture_001.outputs:rgb>
+                float inputs:opacity = 1
+                float inputs:roughness = 0.5
+                float inputs:specular = 0.5
+                token outputs:surface
+            }
+
+            def Shader "Image_Texture"
+            {
+                uniform token info:id = "UsdUVTexture"
+                token inputs:sourceColorSpace = "sRGB"
+                float2 inputs:st.connect = </root/_materials/MI_Trim_01/uvmap.outputs:result>
+                token inputs:wrapS = "repeat"
+                token inputs:wrapT = "repeat"
+                float3 outputs:rgb
+            }
+
+            def Shader "uvmap"
+            {
+                uniform token info:id = "UsdPrimvarReader_float2"
+                string inputs:varname = "st"
+                float2 outputs:result
+            }
+
+            def Shader "Image_Texture_001"
+            {
+                uniform token info:id = "UsdUVTexture"
+                float4 inputs:bias = (-1, -1, -1, -1)
+                float4 inputs:scale = (2, 2, 2, 2)
+                token inputs:sourceColorSpace = "raw"
+                float2 inputs:st.connect = </root/_materials/MI_Trim_01/uvmap.outputs:result>
+                token inputs:wrapS = "repeat"
+                token inputs:wrapT = "repeat"
+                float3 outputs:rgb
+            }
+        }
+
+        def Material "M_Decal_White"
+        {
+            token outputs:surface.connect = </root/_materials/M_Decal_White/Principled_BSDF.outputs:surface>
+            custom string userProperties:blender:data_name = "M_Decal_White"
+
+            def Shader "Principled_BSDF"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                float inputs:clearcoat = 0
+                float inputs:clearcoatRoughness = 0.03
+                color3f inputs:diffuseColor.connect = </root/_materials/M_Decal_White/Image_Texture.outputs:rgb>
+                float inputs:ior = 1.5
+                float inputs:metallic = 0
+                float inputs:opacity = 1
+                float inputs:roughness = 0.5
+                float inputs:specular = 0.5
+                token outputs:surface
+            }
+
+            def Shader "Image_Texture"
+            {
+                uniform token info:id = "UsdUVTexture"
+                token inputs:sourceColorSpace = "sRGB"
+                float2 inputs:st.connect = </root/_materials/M_Decal_White/uvmap.outputs:result>
+                token inputs:wrapS = "repeat"
+                token inputs:wrapT = "repeat"
+                float3 outputs:rgb
+            }
+
+            def Shader "uvmap"
+            {
+                uniform token info:id = "UsdPrimvarReader_float2"
+                string inputs:varname = "st"
+                float2 outputs:result
+            }
+        }
+    }
+}
+

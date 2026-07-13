@@ -1,0 +1,100 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+    doc = "Blender v5.1.2"
+    metersPerUnit = 1
+    upAxis = "Y"
+)
+
+def Xform "root" (
+    customData = {
+        dictionary Blender = {
+            bool generated = 1
+        }
+    }
+)
+{
+    float3 xformOp:rotateXYZ = (-90, -0, 0)
+    uniform token[] xformOpOrder = ["xformOp:rotateXYZ"]
+
+    def Xform "ShortWall_Triangles_Straight"
+    {
+        custom string userProperties:blender:object_name = "ShortWall_Triangles_Straight"
+
+        def Mesh "Plane_240" (
+            active = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            uniform bool doubleSided = 1
+            float3[] extent = [(-1.9999995, -1.9999999, 0.001851054), (-1.999999, 1.9999999, 1.0000001)]
+            int[] faceVertexCounts = [4, 4]
+            int[] faceVertexIndices = [2, 0, 1, 4, 3, 2, 4, 5]
+            rel material:binding = </root/_materials/MI_Trim_01>
+            normal3f[] normals = [(1, 9.548676e-8, 0), (1, 8.235182e-8, 0), (1, 8.235182e-8, 0), (1, 9.548676e-8, 0), (1, 1.086217e-7, 0), (1, 9.548676e-8, 0), (1, 9.548676e-8, 0), (1, 1.086217e-7, 0)] (
+                interpolation = "faceVarying"
+            )
+            point3f[] points = [(-1.999999, -1.9999999, 0.0018517057), (-1.9999995, 1.9999999, 0.001851054), (-1.999999, -1.9999999, 0.7256323), (-1.999999, -1.9999999, 1.0000001), (-1.9999995, 1.9999999, 0.7256317), (-1.9999995, 1.9999999, 1.0000001)]
+            texCoord2f[] primvars:st = [(0.18919808, 0.60627544), (0.81285286, 0.60627544), (0.18919808, 0.6584351), (0.6615832, 0.57057846), (0.6615832, 0.5291345), (0.81285286, 0.6584351), (0.34046757, 0.57057846), (0.34046757, 0.5291345)] (
+                interpolation = "faceVarying"
+            )
+            int[] primvars:st:indices = [2, 0, 1, 5, 4, 3, 6, 7]
+            uniform token subdivisionScheme = "none"
+            custom string userProperties:blender:data_name = "Plane.240"
+        }
+    }
+
+    def Scope "_materials"
+    {
+        def Material "MI_Trim_01"
+        {
+            token outputs:surface.connect = </root/_materials/MI_Trim_01/Principled_BSDF.outputs:surface>
+            custom string userProperties:blender:data_name = "MI_Trim_01"
+
+            def Shader "Principled_BSDF"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                float inputs:clearcoat = 0
+                float inputs:clearcoatRoughness = 0.03
+                color3f inputs:diffuseColor.connect = </root/_materials/MI_Trim_01/Image_Texture.outputs:rgb>
+                float inputs:ior = 1.5
+                float inputs:metallic = 0
+                normal3f inputs:normal.connect = </root/_materials/MI_Trim_01/Image_Texture_001.outputs:rgb>
+                float inputs:opacity = 1
+                float inputs:roughness = 0.5
+                float inputs:specular = 0.5
+                token outputs:surface
+            }
+
+            def Shader "Image_Texture"
+            {
+                uniform token info:id = "UsdUVTexture"
+                token inputs:sourceColorSpace = "sRGB"
+                float2 inputs:st.connect = </root/_materials/MI_Trim_01/uvmap.outputs:result>
+                token inputs:wrapS = "repeat"
+                token inputs:wrapT = "repeat"
+                float3 outputs:rgb
+            }
+
+            def Shader "uvmap"
+            {
+                uniform token info:id = "UsdPrimvarReader_float2"
+                string inputs:varname = "st"
+                float2 outputs:result
+            }
+
+            def Shader "Image_Texture_001"
+            {
+                uniform token info:id = "UsdUVTexture"
+                float4 inputs:bias = (-1, -1, -1, -1)
+                float4 inputs:scale = (2, 2, 2, 2)
+                token inputs:sourceColorSpace = "raw"
+                float2 inputs:st.connect = </root/_materials/MI_Trim_01/uvmap.outputs:result>
+                token inputs:wrapS = "repeat"
+                token inputs:wrapT = "repeat"
+                float3 outputs:rgb
+            }
+        }
+    }
+}
+
