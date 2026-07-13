@@ -3,10 +3,10 @@
 # preserving; glTF triangulates) to ASCII OpenUSD, namespaced per pack.
 #
 # Resumable: a pack whose models/<pack>/ already has .usda is skipped.
-# Usage: bash fetch_convert_all.sh <drive_manifest.parquet> <workdir>
+# Usage: bash fetch_convert_all.sh <data/drive_manifest.parquet> <workdir>
 set -u
 
-MANIFEST="${1:-drive_manifest.parquet}"
+MANIFEST="${1:-data/drive_manifest.parquet}"
 WORK="${2:-_dl}"
 GDOWN="/c/Users/ernes/AppData/Roaming/Python/Python314/Scripts/gdown.exe"
 CONVERT="$(dirname "$0")/fbx_to_usda_batch.py"

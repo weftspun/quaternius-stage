@@ -7,8 +7,8 @@ itch requires an API key (free: https://itch.io/user/settings/api-keys). Flow pe
 Extracted FBX land in <out>/<pack>/FBX/, so convert_all.sh converts them like the rest.
 
     export ITCH_API_KEY=...
-    pixi run python itch_fetch.py itch_manifest.parquet _dl        # all 11
-    pixi run python itch_fetch.py itch_manifest.parquet _dl downtowncitymegakit
+    pixi run python itch_fetch.py data/itch_manifest.parquet _dl        # all 11
+    pixi run python itch_fetch.py data/itch_manifest.parquet _dl downtowncitymegakit
 """
 
 from __future__ import annotations

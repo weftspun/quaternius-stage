@@ -6,7 +6,7 @@ lake (same namespace + `asset:<natural_key>` rule), so this catalog joins that l
 Quaternius has many packs that reuse model names (Fence, Tree, ...), so the natural key is
 namespaced by pack: `quaternius:<pack>/<model>`.
 
-Usage: python build_etnf.py <models_dir> <drive_manifest.parquet> <out.parquet>
+Usage: python build_etnf.py <models_dir> <data/drive_manifest.parquet> <out.parquet>
 """
 
 from __future__ import annotations

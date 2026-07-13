@@ -8,8 +8,8 @@ Set a key (free: console.cloud.google.com -> enable "Google Drive API" -> API ke
     export GOOGLE_API_KEY=AIza...            # or pass --api-key
 
 Usage:
-    pixi run python drive_fetch.py drive_manifest.parquet _dl        # all packs, FBX only
-    pixi run python drive_fetch.py drive_manifest.parquet _dl cars   # one pack
+    pixi run python drive_fetch.py data/drive_manifest.parquet _dl        # all packs, FBX only
+    pixi run python drive_fetch.py data/drive_manifest.parquet _dl cars   # one pack
 
 Resumable: a pack whose out/<pack>/*.fbx already exist is skipped. Only the FBX
 subfolder is fetched (topology-preserving; glTF triangulates, .blend is huge).
